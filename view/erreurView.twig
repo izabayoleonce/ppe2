@@ -1,0 +1,6 @@
+{% extends "homeView.twig" %}
+{% block erreur %}
+<div class="alert alert-danger" role="alert">
+  Erreur: de login et/ou du mot de passe; ou vous étes pas inscrit si tel est le cas cliquez <a href="?controller=utilisateur&action=create">ici</a>.
+</div>
+{% endblock %}

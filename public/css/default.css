@@ -1,0 +1,39 @@
+body{
+    background-color: #DBDBDB;
+}
+
+.login{
+    font-size: 0.6em;
+    padding: 40px;
+    transform: translate(400px,110px);
+    text-align: center;
+    margin: 20px;
+    position: absolute;
+    width: 530px;
+    height: 479px;
+    left: 50.3px;
+    top: 25.7px;
+    
+    background: #737070;
+}
+.login input{
+    position: relative;
+    font-size: 2.5em;   
+
+    background: #FFFDFD;
+}
+
+#btn-connect{
+    border-radius: 29em;
+}
+#btn-connect:hover{
+    font-style: oblique;
+    background-color: #24caf3;
+}
+.inscrit{
+    font-size: 3em;
+}
+ .inscrit:hover{
+     color: #4edf31;
+     font-size: 5em;
+ }

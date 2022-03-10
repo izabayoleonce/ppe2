@@ -1,0 +1,33 @@
+{% extends "adminHomeView.twig" %}
+
+{% block body %}
+<h1>Utilisateur</h1>
+<table class="table caption-top table-bordered">
+
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Login</th>
+      <th scope="col">Active<rh>
+      <th scope="col">Activer</th>
+      <th scope="col">Supprimer</th>
+    </tr>
+  </thead>
+  <tbody>
+     {% for utilisateur in listUsers %}
+        
+        <tr>
+        <td scope="row">{{ utilisateur.nom|e }}</td>
+        <td>{{ utilisateur.login|e }}</td>
+        <td>{{ utilisateur.active|e }}</td>
+        <td>
+            <a class="btn btn-outline-success" for="success-outlined" name="id" href="?controller=utilisateur&action=update&id={{utilisateur.id|e}}">Modifier</a>
+        </td>
+        <td>
+            <a class="btn btn-outline-danger" for="success-outlined" for="danger-outlined" href="?controller=utilisateur&action=delete&id={{utilisateur.id|e}}">Supprimer</a>
+        </td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
