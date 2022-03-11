@@ -32,13 +32,14 @@ class UtilisateurController extends Controller
     {
         if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['password']) && !empty($_POST['password'])) {
             $userManager = new UtilisateursManager();
-            $userData = $userManager ->getUsers($_POST['login'], $_POST['password']);
-            $conteur = $userManager ->getUsersNb($_POST['login'], $_POST['password']);
+            $userData = $userManager ->getUsers($_POST['login']);
+            $conteur = $userManager ->getUsersNb($_POST['login']);
+            $verifepassword = sodium_crypto_pwhash_str_verify($userData['password'], $_POST['password'] );
             $isadmain = $userData['isadmin'];
             $re = $userData['active'];
 
            
-            if($conteur == 1) {
+            if($conteur == 1 && $verifepassword == TRUE) {
                 if ($isadmain == 1){
                     $_SESSION['login'] = $userData['login'];
                     $_SESSION['password'] = $userData['password'];
