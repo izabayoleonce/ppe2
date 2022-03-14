@@ -112,37 +112,37 @@ class Utilisateurs
 
     public function getNom()
     {
-      return $this->_nom;
+      return htmlentities($this->_nom);
     }
 
     public function getPrenom()
     {
-      return $this->_prenom;
+      return htmlentities($this->_prenom);
     }
 
     public function getEmail()
     {
-      return $this->_emmi;
+      return htmlentities($this->_email);
     }
 
     public function getLogin()
     {
-      return $this->_login;
+      return htmlentities($this->_login);
     }public function getPassword()
     {
-      return $this->_password;
+      return htmlentities($this->_password);
     }public function getObservation()
     {
-      return $this->_observation;
+      return htmlentities($this->_observation);
     }
 
     public function getActive()
     {
-      return $this->_avtive;
+      return $this->_active;
     }
     public function getIsadmin()
     {
-      return $this->_isAdmin;
+      return $this->_isadmin;
     }
 
     
