@@ -32,11 +32,18 @@ class UtilisateurController extends Controller
     {
         if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['password']) && !empty($_POST['password'])) {
             $userManager = new UtilisateursManager();
+            $userData=[];
             $userData = $userManager ->getUsers($_POST['login']);
             $conteur = $userManager ->getUsersNb($_POST['login']);
             $verifepassword = sodium_crypto_pwhash_str_verify($userData['password'], $_POST['password'] );
             $isadmain = $userData['isadmin'];
-            $re = $userData['active'];
+            $re = $userData['actif'];
+            // var_dump($userData);echo '</br>';echo '</br>';
+            // var_dump($conteur);echo '</br>';echo '</br>';
+            // var_dump($verifepassword);echo '</br>';echo '</br>';
+            // var_dump($isadmain);echo '</br>';echo '</br>';
+            // var_dump($re);echo '</br>';echo '</br>';
+            // die;
 
            
             if($conteur == 1 && $verifepassword == TRUE) {
@@ -98,18 +105,23 @@ class UtilisateurController extends Controller
         && isset($_POST['login']) && !empty($_POST['login']) 
         && isset($_POST['password']) && !empty($_POST['password']))
         {
-                $getpassword=sodium_crypto_pwhash_str($_POST['password'], SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE);
-            $Users = new Utilisateurs($_POST['login'], $getpassword);
-            // var_dump($Users);
-            //  echo $_POST;
-            //   die;
+            $getpassword=sodium_crypto_pwhash_str($_POST['password'], SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE);
+            $Users = new Utilisateurs([$_POST['nom'],$_POST['prenom'],$_POST['login'], $getpassword]);
+            $userData=[];
             $userManager = new UtilisateursManager();
             $userData = $userManager ->getUsers($_POST['login']);
             $nbUserData = $userManager -> getUsersNb($_POST['login']);
             $verifepassword = sodium_crypto_pwhash_str_verify($userData['password'], $_POST['password'] );
             $conteur = $nbUserData;
+
+            var_dump($Users);echo '</br>';echo '</br>';
+            echo $_POST['nom'],$_POST['prenom'],$_POST['login'];echo '</br>';echo '</br>';
+            var_dump($userData);echo '</br>';echo '</br>';
+            var_dump($conteur);echo '</br>';echo '</br>';
+            var_dump($verifepassword);echo '</br>';echo '</br>';
              
-            if($conteur == 0 && $verifepassword = false)
+            
+            if($conteur == 0 && $verifepassword == TRUE)
             {
                 //  var_dump( $Users );die;
                 $this ->userManager->add($Users);
@@ -119,7 +131,7 @@ class UtilisateurController extends Controller
                     'login'=>$_SESSION['login'],
                     'password'=>$_SESSION['password'],
                 ];
-                $this->render('validtion', $data);  
+                $this->render('nActive', $data);  
             }
             else{
                 $data = [];
@@ -142,6 +154,13 @@ class UtilisateurController extends Controller
             'listUsers'      => $listUser
         ];
         $this->render('listUser', $data );
+    }
+
+    public function editAction()
+    {
+        if(isset($_REQUEST['id'])) {
+            $Users = $this->UtilisateursManager->get((int)$_REQUEST['id']);
+        }
     }
 
 
