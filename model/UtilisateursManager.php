@@ -38,23 +38,21 @@ class UtilisateursManager extends Manager
                 ->prepare($lst);
         $q->bindValue("login",$login, PDO::PARAM_STR);
         $q->execute([
-
             'login'     =>$login
         ]);
         
-        $userData = $q->fetchAll(PDO::FETCH_ASSOC);
+        $userData = $q->fetch(PDO::FETCH_ASSOC);
         return $userData;
         
     }
 
     public function getUsersNb($login){
-        $nbuser='SELECT COUNT(*) FROM utilisateurs WHERE login=:login AND password=:password';
+        $nbuser='SELECT COUNT(*) FROM utilisateurs WHERE login=:login';
         $re=$this->manager
                   ->db
                   ->prepare($nbuser);
         $re->bindValue("login",$login, PDO::PARAM_STR);
         $re->execute([
-
             'login'     =>$login
         ]);
         
