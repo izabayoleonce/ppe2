@@ -1,6 +1,17 @@
 <?php
-setcookie("connction", 'Leonce', time()+(60*60*24));
-setcookie("admin", 'izabayo', time()+(60*60*24));
+//  echo 'test'.' '. 'test'.' '. sodium_crypto_pwhash_str('test', SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE).'</br>';
+//  echo 'jahow'.' '. '0000'.'  '. sodium_crypto_pwhash_str('2000', SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE).'</br>';
+//  echo 'caxag'.' '. '1234'.'  '. sodium_crypto_pwhash_str('1234',SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE).'</br>';
+//  echo 'john'.' '. '0000'.'  '. sodium_crypto_pwhash_str('0000', SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE).'</br>';
+//  echo 'Maikay'.' '. '2512'.'  '. sodium_crypto_pwhash_str('2512', SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE).'</br>';
+//  echo 'james'.' '. '5000'.'  '. sodium_crypto_pwhash_str('5000', SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE).'</br>';
+//  echo 'gazo'.' '. '8520'.'  '. sodium_crypto_pwhash_str('8520', SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE).'</br>';
+//  echo 'chira'.' '. '0203'.'  '. sodium_crypto_pwhash_str('0203', SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE).'</br>';
+//  echo 'brent'.' '. '2022'.'  '. sodium_crypto_pwhash_str('2022', SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE).'</br>';
+// die;
+
+// setcookie("connction", 'Leonce', time()+(60*60*24));
+// setcookie("admin", 'izabayo', time()+(60*60*24));
 session_start(); // On appelle session_start() APRÈS avoir enregistré l'autoload.
 require 'autoload.php';
 require_once 'vendor/autoload.php';
