@@ -4,7 +4,7 @@ namespace controller;
 
 use model\Team;
 use model\TeamManager;
-use ppe2\model\TeamsManager;
+use model\TeamsManager;
 
 class TeamController extends Controller
 {

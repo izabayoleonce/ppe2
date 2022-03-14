@@ -1,7 +1,7 @@
 <?php
-namespace ppe2\model;
+namespace model;
 
-use ppe2\model\Teams;
+use model\Teams;
 
 use PDO;
 
