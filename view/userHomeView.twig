@@ -1,9 +1,49 @@
 {% extends "Pagelayout.html.twig" %}
 {% block header %}
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><span class="navbar-toggler-icon"></span></button>
+  </div>
+</nav>
 
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <img src="../public/images/ligue06.jpg" width="50px" height="50px" alt="logo de la ligue" >
+    <h5 id="offcanvasRightLabel">M2L</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <nav class="nav flex-column">
+        <a class="nav-link active" aria-current="page" href="#">Acceuil</a>
+        <a class="nav-link" href="?controller=Team&action=infoTeam">information relative aux equipe</a>
+        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link"  href="#" tabindex="-1" aria-disabled="true"> <button class="btn btn-primary">Connection</button></a>
+    </nav>
+  </div>
+</div>
 {% endblock %}
 {% block body %}
-
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">date</th>
+      <th scope="col">Equipe à domicile</th>
+      <th scope="col">score</th>
+      <th scope="col">Equipe à l'exterieur</th>
+    </tr>
+  </thead>
+    <tbody>
+    {% for score in scores %}
+    <tr>
+      <th scope="row">{{score.date|date("m/d/Y")}}</th>
+      <td><span>{{score.nomEquipe}}</span><span><img src="{{score.logo}}" width="20" height="20" alt="France" data-src="{{score.logo}}"></span></td>
+      <td>{{score.scoresE1}}-{{score.scoresE2}}</td>
+      <td><span><img src="{{score.logoAdv}}" width="20" height="20" alt="France" data-src="{{score.logoAdv}}"></span><span>{{score.nomEquipeAdv}}</span></td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
 {% endblock %}
 {% block footer %}
 

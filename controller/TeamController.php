@@ -1,9 +1,6 @@
 <?php
 
 namespace controller;
-
-use model\Team;
-use model\TeamManager;
 use model\TeamsManager;
 
 class TeamController extends Controller
@@ -12,7 +9,7 @@ class TeamController extends Controller
 
     public function __construct()
     {        
-        $this->userManager = new TeamsManager();
+        $this->teamsManager = new TeamsManager();
         parent::__construct();
 
 
@@ -22,5 +19,18 @@ class TeamController extends Controller
     {
         $data = ['test' => 'marche'];
         $this->render('home', $data);
+    }
+
+    public function infoTeamAction()
+    {
+        $infoTeams = $this->teamsManager->getAllTeams();
+        
+        $data=[
+            'info'  => $infoTeams
+        ];
+
+        $this->render('infoTeam',$data);
+
+
     }
 }

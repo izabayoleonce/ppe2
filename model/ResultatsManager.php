@@ -33,11 +33,11 @@ class ResultatsManager extends Manager
         
         $q = $this->manager
                   ->db
-                  ->prepare( 'SELECT * FROM utilisateurs' );
+                  ->prepare( 'SELECT dates, logo, nomEquipe, scoresE1,scoresE2, logoAdv, nomEquipeAdv FROM resultat INNER JOIN Teams INNER JOIN Teamsadv ON resultat.id_team1=Teams.id AND resultat.id_team2=Teamsadv.id' );
         $q->execute();
-        $listRes = $q->fetchAll(PDO::FETCH_ASSOC);
+        $listScore = $q->fetchAll(PDO::FETCH_ASSOC);
  
-        return $listRes;
+        return $listScore;
     }
 
 }

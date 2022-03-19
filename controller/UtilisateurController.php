@@ -2,6 +2,7 @@
 
 namespace controller;
 
+use model\ResultatsManager;
 use model\Utilisateurs;
 use model\UtilisateursManager;
 
@@ -14,7 +15,8 @@ class UtilisateurController extends Controller
 
 
     public function __construct()
-    {        
+    {   
+        $this->ResultatManager = new ResultatsManager(); 
         $this->userManager = new UtilisateursManager();
         parent::__construct();
 
@@ -36,18 +38,18 @@ class UtilisateurController extends Controller
             $userData = $userManager ->getUsers($_POST['login']);
             $conteur = $userManager ->getUsersNb($_POST['login']);
             $verifepassword = sodium_crypto_pwhash_str_verify($userData['password'], $_POST['password'] );
-            $isadmain = $userData['isadmin'];
+            $isadmin = $userData['isadmin'];
             $re = $userData['actif'];
             // var_dump($userData);echo '</br>';echo '</br>';
             // var_dump($conteur);echo '</br>';echo '</br>';
             // var_dump($verifepassword);echo '</br>';echo '</br>';
-            // var_dump($isadmain);echo '</br>';echo '</br>';
+            // var_dump($isadmin);echo '</br>';echo '</br>';
             // var_dump($re);echo '</br>';echo '</br>';
             // die;
 
            
             if($conteur == 1 && $verifepassword == TRUE) {
-                if ($isadmain == 1){
+                if ($isadmin == 1){
                     $_SESSION['login'] = $userData['login'];
                     $_SESSION['password'] = $userData['password'];
                 
@@ -58,18 +60,21 @@ class UtilisateurController extends Controller
                 
                 $this->render('adminHome', $data);
                 } 
-                elseif($isadmain == 0 && $re == 1 ){
-                    $_SESSION['login'] = $userData['login'];
+                elseif($isadmin == 0 && $re == 1 ){
+
+                    $tabscore = $this->ResultatManager->getAllResultats();
+                    $_SESSION['login']    = $userData['login'];
                     $_SESSION['password'] = $userData['password'];
                 
                     $data=[
-                        'login'=>$_SESSION['login'],
-                        'password'=>$_SESSION['password'],
+                        'login'         =>$_SESSION['login'],
+                        'password'      =>$_SESSION['password'],
+                        'scores'        =>$tabscore,
                     ];
                     $this->render('userHome', $data);
                 }
                 
-                elseif($re == 0 && $isadmain == 0)
+                elseif($isadmin == 0 && $re == 0)
                 {
                     $_SESSION['login'] = $userData['login'];
                     $_SESSION['password'] = $userData['password'];
@@ -100,45 +105,46 @@ class UtilisateurController extends Controller
 
     public function createValidAction()
     {
-        if (isset($_POST['nom']) && !empty($_POST['nom']) 
-        && isset($_POST['prenom']) && !empty($_POST['prenom']) 
-        && isset($_POST['login']) && !empty($_POST['login']) 
-        && isset($_POST['password']) && !empty($_POST['password']))
-        {
-            $getpassword=sodium_crypto_pwhash_str($_POST['password'], SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE);
-            $Users = new Utilisateurs([$_POST['nom'],$_POST['prenom'],$_POST['login'], $getpassword]);
-            $userData=[];
-            $userManager = new UtilisateursManager();
-            $userData = $userManager ->getUsers($_POST['login']);
-            $nbUserData = $userManager -> getUsersNb($_POST['login']);
-            $verifepassword = sodium_crypto_pwhash_str_verify($userData['password'], $_POST['password'] );
-            $conteur = $nbUserData;
-
-            var_dump($Users);echo '</br>';echo '</br>';
-            echo $_POST['nom'],$_POST['prenom'],$_POST['login'];echo '</br>';echo '</br>';
-            var_dump($userData);echo '</br>';echo '</br>';
-            var_dump($conteur);echo '</br>';echo '</br>';
-            var_dump($verifepassword);echo '</br>';echo '</br>';
+        if (isset($_POST['valider'])){
+            if (isset($_POST['nom']) && !empty($_POST['nom']) 
+            && isset($_POST['prenom']) && !empty($_POST['prenom']) 
+            && isset($_POST['login']) && !empty($_POST['login']) 
+            && isset($_POST['password']) && !empty($_POST['password']))
+            {
+                $getpassword=sodium_crypto_pwhash_str($_POST['password'], SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE);
+                $Data=[
+                    'nom'       =>$_POST['nom'],
+                    'prenom'    =>$_POST['prenom'],
+                    'login'     =>$_POST['login'], 
+                    'password'  =>$getpassword];
+                $Users = new Utilisateurs($Data);
+                $userManager = new UtilisateursManager();
+                $userData = $userManager ->getUsers($_POST['login']);
+                $conteur = $userManager -> getUsersNb($_POST['login']);
+                $verifepassword = sodium_crypto_pwhash_str_verify($userData['password'], $_POST['password'] );
              
             
-            if($conteur == 0 && $verifepassword == TRUE)
-            {
-                //  var_dump( $Users );die;
-                $this ->userManager->add($Users);
-                $_SESSION['login'] = $Users['login'];
-                $_SESSION['password'] = $verifepassword;
-                $data = [
-                    'login'=>$_SESSION['login'],
-                    'password'=>$_SESSION['password'],
-                ];
-                $this->render('nActive', $data);  
-            }
-            else{
-                $data = [];
-                $this->render('userExiste', $data);
-            }
+                if($verifepassword == FALSE)
+                {
+                    $this->userManager->add($Users);
+                    
+                    
+                    $_SESSION['login'] = $Users['login'];
+                    $_SESSION['password'] = $verifepassword;
+                    $data = [
+                        'login'=>$_SESSION['login'],
+                        'password'=>$_SESSION['password'],
+                    ];
+                    $this->render('nActive', $data);  
+                }
+                else{
+                    die;
+                    $data = [];
+                    $this->render('userExiste', $data);
+                }
                 
                 
+            }
         }
         else{
             $data = [];

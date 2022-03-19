@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html class="no-js ie8" xmlns:ng="http://angularjs.org" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html xmlns:ng="http://angularjs.org" lang="en"> <!--<![endif]-->
+  <head>
+          <!-- Font face import -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <link href="/styles/custom/fontface.css" rel="stylesheet">
+    <title></title>
+
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,300,400,400italic,500,700,700italic&subset=cyrillic-ext,latin" rel="stylesheet" type="text/css">
+<link href="/styles/libs.min.css" rel="stylesheet">
+<link href="/styles/custom.min.css" rel="stylesheet">
+
+	 
+
+	<!--SSI /frags/licensee_scripts_header.html -->
+	<!-- SSI fork for esi or beo -->
+<!-- Start Licensee Header Scripts Fragment -->
+
+
+  <script src="//assets.adobedtm.com/launch-EN2cd43b8dd91c4a6e9de1943ebf5606c5.min.js" async></script>
+
+
+<script src="/frags/meta.js"></script>
+
+<link href="//fonts.googleapis.com/css?family=Open+Sans|Open+Sans:300|Open+Sans:600|Open+Sans:700|Oswald|Oswald:300" rel="stylesheet" type="text/css">
+
+
+<link href="https://www.beinsports.com/france/fragment/style/nba.css" rel="stylesheet">
+
+
+
+
+
+
+<style>
+.nba-container-wrapper [class*=" icon-"]:before, .nba-container-wrapper [class^=icon-]:before {
+    font-family: inherit;
+}
+
+.nba-container-wrapper .icon-calendar:before {
+    content: "\f073";
+}
+
+  #app-container, .breadcrumb, #app-container #main-container .container-row .content-container .content .page-header{
+ 	background-color:#0f366b;
+ }
+
+.nba-container-wrapper .row {
+    display: inherit;
+    width: auto!important;
+}
+
+.nba-container-wrapper .row>* {
+    display: inherit;
+}
+
+.nba-container-wrapper .row,.nba-container-wrapper .table,.nba-container-wrapper table {
+    table-layout: initial;
+}
+
+.nba-container-wrapper .table,.nba-container-wrapper table,.nba-container-wrapper td,.nba-container-wrapper th{
+	vertical-align: inherit;
+	border:none;
+	padding:inherit;
+}
+
+.nba-container-wrapper .sib-list-top-team-lineup .module-header .player-img a{
+    text-transform: initial;
+}
+
+@media (max-width: 767px) {
+  .nba-container-wrapper {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 480px) {
+	.nba-container-wrapper td,.nba-container-wrapper th {
+    display: table-cell !important;
+    width: inherit !important;
+    text-align: inherit !important;
+	}
+
+  .nba-container-wrapper td.desktop,
+  .nba-container-wrapper th.desktop {
+    display:none !important;
+  }
+	.nba-container-wrapper thead{
+		display: table-header-group;
+	}
+
+	.nba-container-wrapper .sib-table-container table th.rank,.nba-container-wrapper .sib-table-container table td.rank{
+    width: 45px !important;
+    text-align:center !important;
+	}
+
+	.nba-container-wrapper td.hidden-sm,.nba-container-wrapper th.hidden-sm{
+		display:none !important;
+	}
+}
+</style>
+<script>
+   var navigationOptions = {
+     language : 'fr',
+     otherLocation: "http://www.nba.com/gr/reflectIntl.html?gr=franceuw&page=www&dur=ses",
+     usLocation : "http://www.nba.com/gr/reflectIntl.html?gr=franceuw&page=www&&dur=1w",
+     optionText : "NBA France",
+     editionCookie: "fr_hp"
+   }
+</script>
+
+<!-- End Licensee Header Scripts Fragment -->
+
+	
+    <!--[if IE]>
+      <link href="/styles/libs/font-awesome-ie7.min.css" rel="stylesheet">
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/scripts/libs/es5-shim.min.js"></script>
+      <script src="/scripts/libs/es5-sham.min.js"></script>
+      <script>
+        document.createElement('sib-bar-chart');
+        document.createElement('sib-bar');
+        document.createElement('sib-fallback-src');
+        document.createElement('sib-hotzone-chart');
+        document.createElement('sib-img-player');
+        document.createElement('sib-img-team');
+        document.createElement('sib-playoff-scoreboard-slider');
+        document.createElement('sib-scoreboard-date');
+        document.createElement('sib-scoreboard-slider');
+        document.createElement('sib-social-icons');
+        document.createElement('sib-calendar');
+        document.createElement('sib-scores-calendar');
+        document.createElement('sib-team-twitter');
+        document.createElement('sib-playoff-bracket');
+        document.createElement('ng-pluralize');
+      </script>
+      <style>
+        .sib-table-container select {
+          background-image: none !important;
+        }
+        #player-index-search-label {
+          display: inline !important;
+        }
+      </style>
+    <![endif]-->
+    <style>
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {  display: none !important; }
+    </style>  </head>
+
+  <body data-ng-app="sib" id="ng:app" class="ng-app:sib sib3" >
+  
+    <div data-ng-show="loading && !errors.length" class="preloader">
+        <img src="/media/img/loader.gif" /><br />
+    </div>
+    
+    <div id="app-container" class="ng-hide nba-app-container"  data-ng-hide="loading">
+
+      <div class="global-nav-container nba-global-nav-container" data-ng-show="showNav">
+        <!--SSI /frags/licensee_global_navigation.html -->
+        <!-- Start licensee_global_navigation -->
+<!-- SSI fork for esi or beo -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!--BEGIN content for url: https://www.beinsports.com/france/fragment/nba-header--><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-66228237-1' , 'auto');
+  ga('send', 'pageview');
+</script><link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,800&amp;subset=latin,greek-ext,greek" rel="stylesheet" type="text/css">
+<link href="//fr.global.nba.com/styles/nav/global/styles.css" rel="stylesheet">
+
+<style type="text/css">
+    nav#sib3-nav .sib3-navbar{
+        position: relative;
+    }
+
+    @media(max-width: 767px){
+
+        nav#sib3-nav {
+            padding-bottom: 0px;
+        }
+    }
+</style><div class="beinsports">
+    <div class="nba">
+        
+<header>
+    <div class="header header-fr">
+        <div class="header-band"></div>
+        <div class="maskpage"></div>
+        <div class="container-center-header">
+                            
+
+<div class="middle-header-mob">
+    <div class="logo">
+        <a href="https://www.beinsports.com/france/">
+            <div id="default" class="logo">
+                <img id="logo-mob" class="default-logo" src="//assets.beinsports.com/3.2.8/images/logo-header__en.svg" alt="beIN SPORTS" >
+                <img id="nba-logo-mob" src="//assets.beinsports.com/3.2.8/images/themes/nba/logo.png" class="nba-logo" alt="NBA" />
+            </div>
+            <div id="oc-logo" class="logo">
+                <a target="_blank" href="https://www.olympicchannel.com/ar/?utm_source=broadcast&amp;utm_medium=link&amp;utm_campaign=pc_broadcast-earned_bein" title="">
+                    <img src="//assets.beinsports.com/3.2.8/images/themes/oc2018/beinsport_oc_logo2.png" width="35" />
+                </a>
+            </div>
+        </a>
+        <div class="logo-mobile-menu">
+            <div class="menu-mobile">
+                <i class="icon-menu menu-mobile-open"></i>
+                <i class="icon-icons-bein-extra-01 menu-mobile-close"></i>
+            </div>
+        </div>
+        <nav class="mega-menu-mobile line">
+            <div class="block-search">
+                <form action="https://www.beinsports.com/france/search" class="form-search">
+                    <div class="form-search__item">
+                        <div class="button-wrapper">
+                            <input type="text" class="input-search" name="q" placeholder="Rechercher" />
+                            <button type="submit">
+                                <i class="icon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="block-list-menu">
+                <div class="mega-menu"></div>
+                <ul class="top_menu__list" itemscope="" itemtype="http://www.schema.org/SiteNavigationElement">
+                                                                        <li class="top_menu__item category" itemprop="name">
+                                <a class="taxonomy-mobile" href="https://www.beinsports.com/france/football/" itemprop="url"
+                                                                                                                                                        data-url="https://www.beinsports.com/france/_components/_megamenu/football/48"
+                                                                            >
+                                    Football
+                                </a>
+                            </li>
+                                                                                                <li class="top_menu__item category" itemprop="name">
+                                <a class="taxonomy-mobile" href="https://www.beinsports.com/france/basketball/" itemprop="url"
+                                                                                                                                                        data-url="https://www.beinsports.com/france/_components/_megamenu/basketball/51"
+                                                                            >
+                                    Basketball
+                                </a>
+                            </li>
+                                                                                                <li class="top_menu__item category" itemprop="name">
+                                <a class="taxonomy-mobile" href="https://www.beinsports.com/france/tennis/" itemprop="url"
+                                                                                                                                                        data-url="https://www.beinsports.com/france/_components/_megamenu/tennis/49"
+                                                                            >
+                                    Tennis
+                                </a>
+                            </li>
+                                                                                                <li class="top_menu__item category" itemprop="name">
+                                <a class="taxonomy-mobile" href="https://www.beinsports.com/france/rugby/" itemprop="url"
+                                                                                                                                                        data-url="https://www.beinsports.com/france/_components/_megamenu/rugby/50"
+                                                                            >
+                                    Rugby
+                                </a>
+                            </li>
+                                                                                                <li class="top_menu__item category" itemprop="name">
+                                <a class="taxonomy-mobile" href="https://www.beinsports.com/france/handball/" itemprop="url"
+                                                                                                                                                        data-url="https://www.beinsports.com/france/_components/_megamenu/handball/52"
+                                                                            >
+                                    Handball
+                                </a>
+                            </li>
+                                                                                                                                    <li class="top_menu__item">
+                            <a class="more">Plus</a>
+                            <div class="fix-mega-menu">
+                                <div class="mega-menu-container">
+                                    <div class="mega-menu__cell1 w75">
+                                        <div class="fl w20">
+                                            <div class="mega-menu__cell1__container">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="mega-menu__cell1__title" itemprop="name">
+                                                            <a href="https://www.beinsports.com/france/autres-sports/" itemprop="url" >Autres Sports</a>
+                                                        </div>
+                                                                                                                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                                                                <li class="top_menu__item category top_menu__item__icon" itemprop="name">
+                            <a itemprop="url" href="https://www.canalplus.com/bein-sports-connect/" onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'watch live','event':'navigation_click'});">
+                                <span>En direct</span>
+                                <i class="icon-icons-bein-07"></i>
+                            </a>
+                        </li>
+                                                        </ul>
+            </div>
+            <div class="top_pin_bar">
+                <div class="header_pin_bar">
+                    <div class="top_pin_bar__competition_highlight">
+    <a href="https://www.beinsports.com/france/nba/"
+        onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'superpin','event':'navigation_click','superpinType':'taxonomy','taxonomyId':'\/taxonomies\/183','taxonomyName':'NBA'});">
+        <span>
+            NBA.COM : Le site officiel
+        </span>
+    </a>
+</div>
+
+                </div>
+                <ul class="top_pin_bar__bein">
+                    <li>
+                        <a title="" href="https://sabonner.beinsports.com"> Je m'abonne <span class="picto-bein"><i class="icon-angle-right"></i></span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <section class="">
+        <nav class="top_menu">
+            <ul itemtype="http://www.schema.org/SiteNavigationElement" itemscope="">
+                <li itemprop="name">
+                    <a href="https://www.beinsports.com/france/programmes" onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'TV Guide','event':'navigation_click'});">
+                        <span>Grille TV</span>
+                    </a>
+                </li>
+                <li itemprop="name">
+                    <a href="https://www.beinsports.com/france/livescores" itemprop="url">Live Score</a>
+                </li>
+                <li itemprop="name">
+                    <a href="https://www.beinsports.com/france/videos" itemprop="url">
+                        <span>Vidéos</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+</div>
+
+            
+                            <div class="header_pin_bar">
+                    <div class="top_pin_bar__competition_highlight">
+                        <div class="top_pin_bar__competition_highlight">
+    <a href="https://www.beinsports.com/france/nba/"
+        onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'superpin','event':'navigation_click','superpinType':'taxonomy','taxonomyId':'\/taxonomies\/183','taxonomyName':'NBA'});">
+        <span>
+            NBA.COM : Le site officiel
+        </span>
+    </a>
+</div>
+
+                    </div>
+                </div>
+            
+                                                                    
+<div>
+    
+<div class="top_bar">
+    
+    <div class="flex flex-row-reverse w100">
+        <ul class="top_bar__list">
+                            <li>
+                    <a href="https://www.facebook.com/beINSPORTSFrance" target="_blank" rel="nofollow"
+                       onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'social','event':'navigation_click','social':'facebook','link':'https:\/\/www.facebook.com\/beINSPORTSFrance'});"
+                    >
+                        <i class="icon-facebook"></i>
+                    </a>
+                </li>
+                            <li>
+                    <a href="https://twitter.com/beinsports_FR" target="_blank" rel="nofollow"
+                       onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'social','event':'navigation_click','social':'twitter','link':'https:\/\/twitter.com\/beinsports_FR'});"
+                    >
+                        <i class="icon-twitter"></i>
+                    </a>
+                </li>
+                            <li>
+                    <a href="https://www.youtube.com/user/beinsportofficiel" target="_blank" rel="nofollow"
+                       onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'social','event':'navigation_click','social':'youtube','link':'https:\/\/www.youtube.com\/user\/beinsportofficiel'});"
+                    >
+                        <i class="icon-youtube"></i>
+                    </a>
+                </li>
+                            <li>
+                    <a href="https://www.dailymotion.com/Beinsports-FR" target="_blank" rel="nofollow"
+                       onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'social','event':'navigation_click','social':'dailymotion','link':'https:\/\/www.dailymotion.com\/Beinsports-FR'});"
+                    >
+                        <i class="icon-dailymotion"></i>
+                    </a>
+                </li>
+                            <li>
+                    <a href="https://instagram.com/beinsports_fr/" target="_blank" rel="nofollow"
+                       onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'social','event':'navigation_click','social':'instagram','link':'https:\/\/instagram.com\/beinsports_fr\/'});"
+                    >
+                        <i class="icon-instagram"></i>
+                    </a>
+                </li>
+                    </ul>
+
+        <form action="https://www.beinsports.com/france/search" class="form-search" onsubmit="dataLayer.push({'event': 'search', 'query': document.getElementById('search-input').value});">
+            <div class="form-wrapper">
+                <input class="search-header" id="search-input" type="text" name="q" maxlength="100" placeholder="RECHERCHER"/>
+                <div class="search-icon-header">
+                    <a onclick="$(this).closest('form').submit()">
+                        <i class="icon-search header"></i>
+                    </a>
+                </div>
+            </div>
+        </form>
+
+        
+<div class="newsletter-header">
+    <div class="sprites"><i class="icon-mail-alt"></i></div>
+    <div class="form-wrapper">
+        <form class="form newsletter-subscriber" data-action="https://www.beinsports.com/france/_components/newsletter/rendering/header" data-position="header" method="POST">
+                            <input type="hidden" id="liste_bein_sports" name="liste_bein_sports" value="3">
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Ok</button>
+                    </form>
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+</div>
+<div class="middle-header">
+
+    <div class="middle-header-cell1">
+        <div class="clearfix middle-header-cell1__child">
+            <div id="default" class="logo">
+                <a href="https://www.beinsports.com/france/" title="">
+                    <img src="//assets.beinsports.com/3.2.8/images/logo-header__en.svg" id="logo" class="default-logo" width="127" alt="beIN SPORTS" />
+                    <img src="//assets.beinsports.com/3.2.8/images/themes/nba/logo.png" id="nba-logo" class="nba-logo" width="127" alt="NBA" />
+                </a>
+            </div>
+            <div id="oc-logo" class="logo">
+                <a target="_blank" href="https://www.olympicchannel.com/ar/?utm_source=broadcast&amp;utm_medium=link&amp;utm_campaign=pc_broadcast-earned_bein" title="">
+                    <img src="//assets.beinsports.com/3.2.8/images/themes/oc2018/beinsport_oc_logo2.png" width="55" />
+                </a>
+            </div>
+            <ul itemtype="http://www.schema.org/SiteNavigationElement" itemscope=""
+                class="top_menu__list top_menu__list__1">
+                <li itemprop="name" class="top_menu__item link">
+                    <a href="https://www.beinsports.com/france/livescores"
+                       itemprop="url">Live Score</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    
+
+<div class="middle-header-cell2">
+    <nav class="top_menu line">
+        <div class="top_menu__link-mobile">
+            <a href="https://www.beinsports.com/france/programmes" onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'TV Guide','event':'navigation_click'});">
+                <span>Grille TV</span>
+            </a>
+        </div>
+        <ul itemtype="http://www.schema.org/SiteNavigationElement" itemscope="" class="top_menu__list top_menu__list__2"
+            data-more-link-text="Plus"><li class="top_menu__item category" itemprop="name"><a class="taxonomy"
+                                                                data-url="https://www.beinsports.com/france/_components/_megamenu/football/48"
+                                                                                                href="https://www.beinsports.com/france/football/"
+                                
+                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/195','taxonomyName':'Football'});">Football</a><div class="mega-menu"></div></li><li class="top_menu__item category" itemprop="name"><a class="taxonomy"
+                                                                data-url="https://www.beinsports.com/france/_components/_megamenu/basketball/51"
+                                                                                                href="https://www.beinsports.com/france/basketball/"
+                                
+                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/180','taxonomyName':'Basketball'});">Basketball</a><div class="mega-menu"></div></li><li class="top_menu__item category" itemprop="name"><a class="taxonomy"
+                                                                data-url="https://www.beinsports.com/france/_components/_megamenu/tennis/49"
+                                                                                                href="https://www.beinsports.com/france/tennis/"
+                                
+                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/319','taxonomyName':'Tennis'});">Tennis</a><div class="mega-menu"></div></li><li class="top_menu__item category" itemprop="name"><a class="taxonomy"
+                                                                data-url="https://www.beinsports.com/france/_components/_megamenu/rugby/50"
+                                                                                                href="https://www.beinsports.com/france/rugby/"
+                                
+                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/298','taxonomyName':'Rugby'});">Rugby</a><div class="mega-menu"></div></li><li class="top_menu__item category" itemprop="name"><a class="taxonomy"
+                                                                data-url="https://www.beinsports.com/france/_components/_megamenu/handball/52"
+                                                                                                href="https://www.beinsports.com/france/handball/"
+                                
+                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/279','taxonomyName':'Handball'});">Handball</a><div class="mega-menu"></div></li><li class="top_menu__item category" itemprop="name"><a class="taxonomy"
+                                                                data-url="https://www.beinsports.com/france/_components/_megamenu/autres-sports/53"
+                                                                                                href="https://www.beinsports.com/france/autres-sports/"
+                                
+                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/176','taxonomyName':'Autres sports'});">Autres Sports</a><div class="mega-menu"></div></li></ul>
+            </nav>
+</div>
+<div class="middle-header-cell3 ">
+    <ul itemtype="http://www.schema.org/SiteNavigationElement" itemscope="" class="top_menu__rightlist">
+        <li itemprop="name" class="top_menu__item category">
+            <a href="https://www.beinsports.com/france/videos" itemprop="url">
+                <i class="icon-video-icon"></i>
+                <span>Vidéos</span>
+            </a>
+        </li>
+                <li class="top_menu__item category" itemprop="name">
+            <a href="https://www.canalplus.com/bein-sports-connect/"
+               itemprop="url"
+               target="_blank"
+                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'watch live','event':'navigation_click'});">
+                <i class="icon-connect"></i>
+                <span>En direct </span>
+            </a>
+        </li>
+                            <li class="top_menu__item category" itemprop="name">
+                <a href="https://www.beinsports.com/france/replay" itemprop="url">
+                    <i class="icon-icons-bein-06"></i>
+                    <span>Replay</span>
+                </a>
+            </li>
+                <li class="top_menu__item category" itemprop="name">
+            <a href="https://www.beinsports.com/france/programmes" itemprop="url" onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'TV Guide','event':'navigation_click'});">
+                <i class="icon-icons-bein-05"></i>
+                <span>Grille TV</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+</div>
+
+            
+            <div class="middle-header subheader">
+
+                <!---->
+                <div class="middle-header-cell1">
+                    <div class="clear">
+                        <div class="top_pin_bar__competition_highlight">
+    <a href="https://www.beinsports.com/france/nba/"
+        onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'superpin','event':'navigation_click','superpinType':'taxonomy','taxonomyId':'\/taxonomies\/183','taxonomyName':'NBA'});">
+        <span>
+            NBA.COM : Le site officiel
+        </span>
+    </a>
+</div>
+
+                    </div>
+                </div>
+
+                <!---->
+
+                <!---->
+
+                <div class="middle-header-cell2">
+                    <nav>
+                        <ul itemtype="http://www.schema.org/SiteNavigationElement" itemscope="" id="top_pin_bar__list__1" class="top_pin_bar__list" data-more-link-text="Plus">
+                                                                                <li itemprop="name" class="top_pin_bar__item"><a href="https://www.beinsports.com/france/jeux-olympiques/" itemprop="url"  >#JO</a></li>
+                        <li itemprop="name" class="top_pin_bar__item"><a href="https://www.beinsports.com/france/uefa-ligue-des-champions/" itemprop="url"  >#Champions</a></li>
+                        <li itemprop="name" class="top_pin_bar__item"><a href="https://www.beinsports.com/france/ligue-1/" itemprop="url"  >#Ligue1</a></li>
+                        <li itemprop="name" class="top_pin_bar__item"><a href="https://www.beinsports.com/france/la-liga/" itemprop="url"  >#Liga</a></li>
+                        <li itemprop="name" class="top_pin_bar__item"><a href="https://www.beinsports.com/france/serie-a/" itemprop="url"  >#SerieA</a></li>
+                        <li itemprop="name" class="top_pin_bar__item"><a href="https://www.beinsports.com/france/mercato/" itemprop="url"  >#Mercato</a></li>
+    
+                                                    </ul>
+                    </nav>
+                </div>
+
+                <!---->
+
+                <!---->
+
+                <div class="middle-header-cell3">
+
+                    <ul class="top_pin_bar__bein">
+                        <li style="">
+                            <a href="https://sabonner.beinsports.com" title="" target="_blank">
+                                Je m'abonne<span class="picto-bein"><i class="icon-angle-right"></i></span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!---->
+
+            </div>
+        </div>
+    </div>
+</header>
+        <section>
+            <div class="container-center-center">
+                <!-- Static navbar -->
+
+<script>
+  var navigationOptions = {
+    language : 'fr',
+    otherLocation: "http://www.nba.com/gr/reflectIntl.html?gr=franceuw&page=www&dur=ses",
+    usLocation : "http://www.nba.com/gr/reflectIntl.html?gr=franceuw&page=www&&dur=1w",
+    optionText : "NBA France",
+    editionCookie: "fr_hp"
+  }
+</script>
+
+<div class="hidden-sm" id="global-nav" >
+    <div id="edition_wrapper">
+        <div id="edition" class="edition_open">
+            <form name="editionForm">
+                <div class="rule"></div>
+                <span class="choose-edition">Please select your default edition</span>
+                <span class='controls'>
+            <INPUT TYPE="radio" NAME="edition" VALUE="us" onClick="set_HP_default('us');">US</input>
+          </span>
+            </form>
+        </div>
+        <div id="edition_message" class="edition_closed">
+            <span class="edition-message">Your default site has been set for 7 days</span>
+        </div>
+    </div>
+    <div class="container">
+        <button type="button" class="navbar-toggle" >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div >
+            <div class="nav-collapse collapse global-nav-collapse">
+                <ul id="global-nav-1" class="nav navbar-nav">
+                    <li><a href="javascript:handle_redirect();">NBA.COM</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Teams</a>
+                        <ul class="dropdown-menu">
+                            <li><a target="_blank" href="http://www.nba.com/hawks/">Atlanta</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/celtics/">Boston</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/nets/">Brooklyn</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/bobcats/">Charlotte</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/bulls/">Chicago</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/cavaliers/">Cleveland</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/mavericks/">Dallas</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/nuggets/">Denver</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/pistons/">Detroit</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/warriors/">Golden State</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/rockets/">Houston</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/pacers/">Indiana</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/clippers/">LA Clippers</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/lakers/">LA Lakers</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/grizzlies/">Memphis</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/heat/">Miami</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/bucks/">Milwaukee</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/timberwolves/">Minnesota</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/hornets/">New Orleans</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/knicks/">New York</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/thunder/">Oklahoma City</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/magic/">Orlando</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/sixers/">Philadelphia</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/suns/">Phoenix</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/blazers/">Portland</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/kings/">Sacramento</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/spurs/">San Antonio</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/raptors/">Toronto</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/jazz/">Utah</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/wizards/">Washington</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Global</a>
+                        <ul class="dropdown-menu">
+                            <li><a target="_blank" href="https://ar.nba.com">Argentina</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/australia">Australia</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/belarus">Belarus</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/brasil">Brasil</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/canada">Canada</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/china">&#20013;&#22269;</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/enebea">éne-bé-a</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/japan">&#26085;&#26412;</a></li>
+                            <li><a target="_blank" class="france-smi" href="https://www.beinsports.com/france/nba/">France</a></li>
+                            <li><a target="_blank" href="https://in.nba.com">India</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/israel">Israel</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/italia">Italia</a></li>
+                            <li><a target="_blank" class="mena-smi" href="http://www.nba.com/arabic">MENA</a></li>
+                            <li><a target="_blank" href="https://mx.nba.com/">Mexico</a></li>
+                            <li><a target="_blank" href="https://nba.smart.com.ph/">Philippines</a></li>
+                            <li><a target="_blank" href="https://es.nba.com">Spain</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/taiwan">Taiwan</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/uk">United Kingdom</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/ukraine">Ukraine</a></li>
+                            <li><a target="_blank" href="http://www.nba.com/russia">Russia</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:handle_edition();">Set Default Edition</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+                <div class="mrs mls mlr-case">
+                    <div class="page-nav clearfix">
+                        <nav class="breadcrumb">
+    <ul class="breadcrumb__list">
+                    <li class="breadcrumb__item"
+                itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <a title="" href="https://www.beinsports.com/france/" itemprop="url">
+                        <span itemprop="title" content="France">
+                            Accueil
+                        </span>
+                    </a> &gt;                            </li>
+                    <li class="breadcrumb__item"
+                itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <a title="" href="https://www.beinsports.com/france/basketball/" itemprop="url">
+                        <span itemprop="title" >
+                            Basketball
+                        </span>
+                    </a> &gt;                            </li>
+                    <li class="breadcrumb__item"
+                itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                                    <a title="" href="https://www.beinsports.com/france/nba/" itemprop="url">
+                        <span itemprop="title" >
+                            NBA
+                        </span>
+                    </a>                             </li>
+            </ul>
+</nav>
+
+                        <div class="page_title_menu">
+                            <h1 class="page_title">
+                                <a href="/france/nba/">
+                                    NBA
+                                </a>
+                            </h1>
+                            
+
+<nav class="page_menu">
+    <ul class="page_menu__list clearfix flex-menu" itemscope="" itemtype="http://www.schema.org/SiteNavigationElement" data-more-link-text="Plus">
+        <li class="menu_item ">
+            <a href="https://www.beinsports.com/france/nba/videos">Vidéos</a>
+        </li>
+        <li class="menu_item ">
+            <a href="//fr.global.nba.com/standings/">classement</a>
+        </li>
+        <li class="menu_item ">
+            <a href="//fr.global.nba.com/scores/">Scores</a>
+        </li>
+        <li class="menu_item ">
+            <a href="//fr.global.nba.com/schedule/broadcaster/">programme</a>
+        </li>
+        <li class="menu_item ">
+            <a href="//fr.global.nba.com/draft/">Draft</a>
+        </li>
+        <li class="menu_item dropdown_item">
+            <a>statistiques<span class="icon-angle-down"></span></a>
+            <ul class="dropdown" data-suffix="statistiques">
+                <li class="nested_item ">
+                    <a href="//fr.global.nba.com/statistics/">
+                        Individuelle
+                    </a>
+                </li>
+                <li class="nested_item ">
+                    <a href="//fr.global.nba.com/statistics/teamstats/">
+                        Equipe
+                    </a>
+                </li>
+                <li class="nested_item ">
+                    <a href="//fr.global.nba.com/statistics/leagueleaders/">
+                        Joueurs leaders
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu_item ">
+            <a href="//fr.global.nba.com/playoffpicture/">Playoffs</a>
+        </li>
+        <li class="menu_item ">
+            <a href="//fr.global.nba.com/playerindex/">Joueur</a>
+        </li>
+        <li class="menu_item ">
+            <a href="//fr.global.nba.com/teamindex/">Équipe</a>
+        </li>
+    </ul>
+</nav>
+
+<ul class="nba-links">
+    <li>
+        <a href="https://www.nbastore.eu/fr/?loc=fr-FR?_s=bm-fi-NBA-prtsite-NBA-PS-1020US" target="_blank">
+            <img class="nba-store" src="//assets.beinsports.com/3.2.8/images/themes/nba/nba-store.png"/>
+        </a>
+    </li>
+    <li>
+        <a href="https://watch.nba.com/packages?ls=nba:leaguepass:own:dig:intsites:topnav:eg:acq:sub:dtc-acq:beinsports:FR:fr:" target="_blank">
+            <img class="nba-leaguepass" src="//assets.beinsports.com/3.2.8/images/themes/nba/nba-leaguepass.svg"/>
+        </a>
+    </li>
+</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!--END content for url: https://www.beinsports.com/france/fragment/nba-header-->
+
+
+
+<!-- END SSI fork for esi or beo -->
+
+
+<!-- End licensee_global_navigation -->
+
+       <!--SSI /frags/licensee_content_top_banner.html -->
+       <!-- Start Licensee Content Top Banner Fragment -->
+<!-- End Licensee Content Top Banner Fragment -->           
+      </div>
+      
+      <div class='nba-container-wrapper' >
+      
+        <div class='main-nav-container' data-ng-show="showNav" data-ng-class="{'container': !fullWidthNav}">            
+          <!--SSI /frags/licensee_content_site_navigation.html -->
+          <!-- Start Licensee Content Site Navigation Fragment -->
+
+
+<!-- End Licensee Content Site Navigation Fragment -->
+
+    
+        
+          <!--SSI /frags/licensee_stats_site_navigation.html -->
+          <!-- Start Licensee Stats Site Navigation Fragment -->
+
+<!-- END Licensee Stats Site Navigation Fragment -->       
+        </div>         
+
+        <div class="container" id="main-container">
+            
+          <div class="row container-row">
+          
+            <div class="col-xl-2 visible-xl text-right content-aside content-aside-left" data-ng-hide="mobileAppViewMode">
+  						<!--SSI /frags/licensee_ad_left.html -->
+  						<!-- Start licensee_ad_left -->
+
+<!--add some content to preserve layout-->
+&nbsp;
+
+<!-- End licensee_add_left -->                
+            </div>  <!-- /page-wrapper -->
+  
+            <div class="col-xl-8 col-lg-12 content-container">
+            
+              <div class='content-container-top' data-ng-show="showNav">                         
+                <!--SSI /frags/licensee_content_top_promos.html -->
+                <!-- Start Licensee Content Top Promos Fragment -->
+<!-- End Licensee Content Top Promos Fragment -->
+                  
+              </div>
+  
+              <div class='content'>
+                <!-- Start content -->
+                  <section class='team-profile'>
+  <div data-ng-controller="SingleTeamProfileCtrl">
+    <sib-page-header data-sib-title="_page.teamProfile" data-sib-breadcrumb='{"navbar.allTeams":"/teamindex/"}'></sib-page-header>
+	  <!--SSI /frags/licensee_team_top.html --><!-- Start Licensee team top Fragment -->
+
+<!-- END Licensee team top Fragment -->
+  	<div class="row">
+  		<div class="col-sm-12">
+  		 
+<div class="sib-list sib-page-tabs sib-team-tabs"  data-ng-controller="ActiveTeamTabCtrl">
+  <div data-ng-if="!useCustomTeamNav">
+    <div class="hidden-sm sib3-tabs-wrap ">
+    <a sib-team-urls team="team.profile" data-ng-href="/teams/#!/{{ team.profile.code }}">
+      <div class=" sib3-tab tab-{{tabCount}}" data-ng-class="{toggled: teamPageTabbed == 'profile'}">
+        <span data-ng-i18next="teamSnapshot.links.profile"></span>
+      </div>
+    </a>
+    <a data-ng-href="/teams/schedule/#!/{{ team.profile.code }}">
+      <div class=" sib3-tab tab-{{tabCount}}" data-ng-class="{toggled: teamPageTabbed == 'schedule'}">
+        <span data-ng-i18next="teamSnapshot.links.schedule"></span>
+      </div>
+    </a>
+    <a data-ng-href="/teams/stats/#!/{{ team.profile.code }}">
+      <div class=" sib3-tab tab-{{tabCount}}" data-ng-class="{toggled: teamPageTabbed == 'stats'}">
+        <span data-ng-i18next="teamSnapshot.links.stats"></span>
+      </div>
+    </a>
+    <a data-ng-href="/teams/leaders/#!/{{ team.profile.code }}">
+      <div class=" sib3-tab tab-{{tabCount}}" data-ng-class="{toggled: teamPageTabbed == 'leaders'}">
+        <span data-ng-i18next="teamSnapshot.links.leaders"></span>
+      </div>
+    </a>
+    <a data-ng-href="/teams/roster/#!/{{ team.profile.code }}">
+      <div class=" sib3-tab tab-{{tabCount}}" data-ng-class="{toggled: teamPageTabbed == 'roster'}">
+        <span data-ng-i18next="teamSnapshot.links.roster"></span>
+      </div>
+    </a>
+    <a data-ng-href="/teams/hotzones/#!/{{ team.profile.code }}" data-ng-if="hasTeamHotzoneData">
+      <div class=" sib3-tab tab-{{tabCount}}" data-ng-class="{toggled: teamPageTabbed == 'hotzones'}">
+        <span data-ng-i18next="teamSnapshot.links.hotZones"></span>
+      </div>
+    </a>
+    <a data-ng-href="/teams/vs/#!/{{ team.profile.code }}" data-ng-if="hasTeamHotzoneData">
+      <div class=" sib3-tab tab-{{tabCount}}" data-ng-class="{toggled: teamPageTabbed == 'vs'}">
+        <span data-ng-i18next="teamSnapshot.links.comparison"></span>
+      </div>
+    </a>
+    <a data-ng-href="/teams/news/#!/{{ team.profile.code }}" data-ng-if="showNews">
+      <div class=" sib3-tab tab-{{tabCount}}" data-ng-class="{toggled: teamPageTabbed == 'news'}">
+        <span data-ng-i18next="teamSnapshot.links.news"></span>
+      </div>
+    </a> 
+  </div>
+  <div class="visible-sm select-wrap">
+    <select name="player-links" id="player-page-links" data-ng-model="$parent.teamPageTabbed">
+      <option value="profile" data-ng-i18next="teamSnapshot.links.profile"></option>
+      <option value="schedule" data-ng-i18next="teamSnapshot.links.schedule"></option>
+      <option value="stats" data-ng-i18next="teamSnapshot.links.stats"></option>
+      <option value="leaders" data-ng-i18next="teamSnapshot.links.leaders"></option>
+      <option value="roster" data-ng-i18next="teamSnapshot.links.roster"></option>
+      <option data-ng-if="hasTeamHotzoneData" value="hotzones" data-ng-i18next="teamSnapshot.links.hotZones"></option>
+      <option data-ng-if="hasTeamHotzoneData" value="vs" data-ng-i18next="teamSnapshot.links.comparison"></option>
+      <option data-ng-if="showNews" value="news" data-ng-i18next="teamSnapshot.links.news"></option>
+    </select>
+  </div>  </div>
+  <div data-ng-if="useCustomTeamNav">
+    <!--SSI /frags/licensee_team_nav.html -->
+    [an error occurred while processing this directive]
+  </div>
+</div>
+  			<div class="sib-list sib-list-team">
+  <div class="row sib-list-team-snapshot" data-ng-controller="TeamSnapshotCtrl" data-ng-cloak>
+
+    <!-- left -->
+    <div class="col-4 col-sm-3 left">
+      <a data-ng-href="/teams/#!/{{ team.profile.code }}" class="anchor-unstyled" sib-team-urls team="team.profile"><sib-img-team team-abbr="team.profile.abbr| earlyTeamChange:'imgAbbr' " league-id="teamStanding.league.id"></sib-img-team></a>
+    </div>
+    <!-- /left -->
+
+    <!-- right -->
+    <div class="col-8 col-sm-9 right">
+      <div class="nba-team-info-wrapper">
+
+        <div class="nba-team-info-inner" data-ng-class="{shortname: shortName == 'true'}" >
+          <h2><a data-ng-href="/teams/#!/{{ team.profile.code }}" class="anchor-unstyled" sib-team-urls team="team.profile"><span data-ng-bind-html="team.profile.city"></span> <span data-ng-bind-html="team.profile.name | earlyTeamChange:'name' "></span></a></h2>
+          <p class="visible-sm win-lose-wrap">{{ teamStanding.team.standings.wins }} <span class="win-loose" data-ng-i18next="teamScheduleSnapshot.w"></span> - {{ teamStanding.team.standings.losses }} <span class="win-loose" data-ng-i18next="teamScheduleSnapshot.l"></span></p>
+          <span data-ng-show="teamStanding.team.standings.confRank  > 0">
+            <p class="conference-ranking"><span data-ng-i18next="[html]{{'previewSnapshot.rankInTheConference'|i18next:messageOptions}}"></span></p>
+            <p class="league-rankings winning-streak-text" data-ng-show="teamStanding.team.standings.onHotStreak == 'false' && teamStanding.season.scheduleSeasonType != 4"><b><span data-ng-i18next="previewSnapshot.streak"></span>:</b> {{ teamStanding.team.standings.streak }}</p>
+            <p class="league-rankings hot-streak-text" data-ng-show="teamStanding.team.standings.onHotStreak == 'true' && teamStanding.season.scheduleSeasonType != 4"><b><span data-ng-i18next="previewSnapshot.hotStreak"></span>:</b> {{ teamStanding.team.standings.streak }}</p>
+          </span>
+          <p class="coach-text" data-ng-hide="!teamStanding.team.coach.headCoach">
+            <b><span data-ng-i18next="previewSnapshot.coach"></span>: </b>
+            <span data-ng-bind-html="teamStanding.team.coach.headCoach"></span>
+          </p>
+        </div>
+        <div class="hidden-sm nba-team-info-right">
+          <p>{{ teamStanding.team.standings.wins }} <span class="win-loose" data-ng-i18next="teamScheduleSnapshot.w"></span> - {{ teamStanding.team.standings.losses }} <span class="win-loose" data-ng-i18next="teamScheduleSnapshot.l"></span></p>
+        </div>
+      </div>
+    </div>
+    <!-- right -->
+
+    <!-- footer -->
+    <div class="col-12 footer hidden-sm">
+      <div class="row" data-ng-show="(teamStanding.team.rank.ppg > 0) && !isJrNBA"> <!-- dont show negative rankings -->
+
+        <div class="col-sm-8 top">
+          <!-- spacer -->
+        </div>
+
+        <div class="col-sm-4 top">
+          <div class="content-block">
+            <div class="stats-block">
+              <span><span data-ng-i18next="_stats.PPG"></span></span>
+            </div>
+            <div class="stats-block">
+              <span><span data-ng-i18next="_stats.APG"></span></span>
+            </div>
+            <div class="stats-block">
+              <span><span data-ng-i18next="_stats.RPG"></span></span>
+            </div>
+            <div class="stats-block">
+              <span><span data-ng-i18next="_stats.OPPG"></span></span>
+            </div>
+            <div class="clearfix">
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-8 btm">
+          <span class="stats-title">
+            <a data-ng-href="/statistics/teamstats/#!/{{ team.profile.code }}">
+              {{ teamStanding.season.statsSeasonYearDisplay + " " + ('_seasonType.' + seasonType | i18next) + " " + ('teamProfile.leagueRankingsLink' | i18next) }}
+            </a>
+          </span>
+        </div>
+
+        <div class="col-sm-4 btm">
+          <div class="content-block">
+            <div class="stats-block">
+              <span class="big">{{ teamStanding.team.rank.ppg }}<span class="contraction"><sup>{{ teamStanding.team.rank.ppg | ordinal }}</sup></span></span>
+            </div>
+            <div class="stats-block">
+              <span class="big">{{ teamStanding.team.rank.apg }}<span class="contraction"><sup>{{ teamStanding.team.rank.apg | ordinal }}</sup></span></span>
+            </div>
+            <div class="stats-block">
+              <span class="big">{{ teamStanding.team.rank.rpg }}<span class="contraction"><sup>{{ teamStanding.team.rank.rpg | ordinal }}</sup></span></span>
+            </div>
+            <div class="stats-block">
+              <span class="big">{{ teamStanding.team.rank.oppg }}<span class="contraction"><sup>{{ teamStanding.team.rank.oppg | ordinal }}</sup></span></span>
+            </div>
+            <div class="clearfix">
+
+            </div>
+          </div>
+        </div><!-- /btm -->
+
+      </div><!-- /row -->
+    </div><!-- /footer -->
+  </div>
+  <div class="footer-sm visible-sm" data-ng-show="teamStanding.team.rank.ppg > 0"> <!-- dont show negative rankings -->
+    <p class="footer-title">
+      <a data-ng-href="/statistics/teamstats/#!/{{ team.profile.code }}">
+        {{ teamStanding.season.statsSeasonYearDisplay + " " + ('_seasonType.' + seasonType | i18next) + " " + ('teamProfile.leagueRankingsLink' | i18next) }}
+      </a>
+    </p>
+    <div class="stats-block">
+      <span class="stat-type"><span data-ng-i18next="_stats.PPG"></span></span><span class="number">{{ teamStanding.team.rank.ppg }}</span><span class="contraction"><sup>th</sup></span>
+    </div>
+    <div class="stats-block">
+      <span class="stat-type"><span data-ng-i18next="_stats.APG"></span></span><span class="number">{{ teamStanding.team.rank.apg }}</span><span class="contraction"><sup>th</sup></span>
+    </div>
+    <div class="stats-block">
+      <span class="stat-type"><span data-ng-i18next="_stats.RPG"></span></span><span class="number">{{ teamStanding.team.rank.rpg }}</span><span class="contraction"><sup>th</sup></span>
+    </div>
+    <div class="stats-block">
+      <span class="stat-type"><span data-ng-i18next="_stats.OPPG"></span></span><span class="number">{{ teamStanding.team.rank.oppg }}</span><span class="contraction"><sup>th</sup></span>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+			
+  		</div>
+  	</div>
+  		
+  	<div class="row">
+  		<div class="col-sm-12">  
+  			<!-- Top Team Lineup Start -->
+<div class="sib-list sib-list-top-team-lineup">
+  <div class="row">
+    <div class="col-lg-3 col-sm-3 col-12 module-header">
+      <div class="player-img">
+        <span class="col-sm-12">{{ playerStats.season.statsSeasonYearDisplay + " " + ('_seasonType.' + playerSeasonType | i18next) }}</span>
+        <span class="col-sm-12" data-ng-i18next="teamProfile.topLineup.title"></span>
+        <a data-ng-href="/teams/roster/#!/{{ team.profile.code }}" data-ng-i18next="teamProfile.topLineup.seeFull"></a>
+      </div>
+    </div>
+    <div class="col-lg-9 col-sm-9 col-12 player-list">
+      <div class="player" data-ng-repeat="player in playerStats.team.players | orderBy:'statAverage.minsPg':true | limitTo:5">
+        <div class="player-img">
+          <a sib-player-urls team="playerStats.team" data-ng-href="/players/#!/{{ player.profile.code }}" class="rounded-headshot">
+            <sib-img-player player-id="player.profile.playerId" size="small" type="head" class="player-img" league-id="teamStanding.league.id"></sib-img-player>
+          </a>
+        </div>
+        <div class="player-position">
+          <span class="visible-lg">{{ player.profile.position }}</span>
+          <span class="hidden-lg">{{ player.profile.position }}</span>
+        </div>
+        <div class="player-info">
+          <a sib-player-urls team="playerStats.team" data-ng-href="/players/#!/{{ player.profile.code }}"><span data-ng-bind-html="player.profile.firstName"></span><span data-ng-show="player.profile.firstName"><span data-ng-i18next="delimiter.firstNameLastName"></span></span><span data-ng-bind-html="player.profile.lastName"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Top Team Lineup End -->
+  		</div>
+  	</div>  
+  
+  	<div class="row">
+  		<div class="col-lg-6 col-sm-6 col-12">  
+  			<!-- Who is Hot -->
+<div class="sib-list sib-list-team-leaders" data-ng-cloak data-ng-controller="TeamLeadersCtrl" data-ng-class="{ 'jr-nba': isJrNBA }">
+  <div class="list-title">
+    <span>{{ tl.season.statsSeasonYearDisplay + " " + ('_seasonType.' + playerSeasonType | i18next) }}</span>
+    <span data-ng-i18next="teamProfile.teamLeaders.title"></span>
+  </div>
+
+  <div class="row leader-row">
+    <div class="col-4 leader first">
+      <div class="player-img">
+        <a sib-player-urls team="tl.profile" data-ng-href="/players/#!/{{ tl.pointLeader.players[0].profile.code }}" class="anchor-unstyled">
+          <sib-img-player class="player-img" type="action" size="small" player-id="tl.pointLeader.players[0].profile.playerId" league-id="teamStanding.league.id"></sib-img-player>
+        </a>
+      </div>
+      <div class="player-info">
+        <div class="stat-label"><span class="s-label" data-ng-i18next="teamProfile.teamLeaders.points"></span> <span class="pts">{{ tl.pointLeader.players[0].value }}</span></div>
+        <span class="name visible-sm"><a sib-player-urls team="tl.profile" data-ng-href="/players/#!/{{ tl.pointLeader.players[0].profile.code }}"><span data-ng-bind-html="tl.pointLeader.players[0].profile.firstName"></span><span data-ng-show="tl.pointLeader.players[0].profile.firstName"><span data-ng-i18next="delimiter.firstNameLastName"></span></span><span data-ng-bind-html="tl.pointLeader.players[0].profile.lastName"></span></a> <span class="position">{{ tl.pointLeader.players[0].profile.position }} / {{ tl.pointLeader.players[0].profile.jerseyNo }}</span></span>
+        <span class="name hidden-sm"><a sib-player-urls team="tl.profile" data-ng-href="/players/#!/{{ tl.pointLeader.players[0].profile.code }}"><span data-ng-bind-html="tl.pointLeader.players[0].profile.firstName"></span><span data-ng-show="tl.pointLeader.players[0].profile.firstName"><span data-ng-i18next="delimiter.firstNameLastName"></span></span><span data-ng-bind-html="tl.pointLeader.players[0].profile.lastName"></span></a> <span class="position">{{ tl.pointLeader.players[0].profile.position }} / {{ tl.pointLeader.players[0].profile.jerseyNo }}</span></span>
+      </div>
+    </div>
+    <div class="col-4 leader">
+      <div class="player-img">
+        <a sib-player-urls team="tl.profile" data-ng-href="/players/#!/{{ tl.reboundLeader.players[0].profile.code }}" class="anchor-unstyled">
+          <sib-img-player class="player-img" type="action" size="small" player-id="tl.reboundLeader.players[0].profile.playerId" league-id="teamStanding.league.id"></sib-img-player>
+        </a>
+      </div>
+      <div class="player-info">
+        <div class="stat-label"><span class="s-label" data-ng-i18next="teamProfile.teamLeaders.rebounds"></span> <span class="pts">{{ tl.reboundLeader.players[0].value }}</span></div>
+        <span class="name visible-sm"><a sib-player-urls team="tl.profile" data-ng-href="/players/#!/{{ tl.reboundLeader.players[0].profile.code }}"><span data-ng-bind-html="tl.reboundLeader.players[0].profile.firstName"></span><span data-ng-show="tl.reboundLeader.players[0].profile.firstName"><span data-ng-i18next="delimiter.firstNameLastName"></span></span><span data-ng-bind-html="tl.reboundLeader.players[0].profile.lastName"></span></a> <span class="position">{{ tl.reboundLeader.players[0].profile.position }} / {{ tl.reboundLeader.players[0].profile.jerseyNo }}</span></span>
+        <span class="name hidden-sm"><a sib-player-urls team="tl.profile" data-ng-href="/players/#!/{{ tl.reboundLeader.players[0].profile.code }}"><span data-ng-bind-html="tl.reboundLeader.players[0].profile.firstName"></span><span data-ng-show="tl.reboundLeader.players[0].profile.firstName"><span data-ng-i18next="delimiter.firstNameLastName"></span></span><span data-ng-bind-html="tl.reboundLeader.players[0].profile.lastName"></span></a> <span class="position">{{ tl.reboundLeader.players[0].profile.position }} / {{ tl.reboundLeader.players[0].profile.jerseyNo }}</span></span>
+      </div>
+    </div>
+    <div class="col-4 leader">
+      <div class="player-img">
+        <a sib-player-urls team="tl.profile" data-ng-href="/players/#!/{{ tl.assistLeader.players[0].profile.code }}" class="anchor-unstyled">
+          <sib-img-player class="player-img" type="action" size="small" player-id="tl.assistLeader.players[0].profile.playerId" league-id="teamStanding.league.id"></sib-img-player>
+        </a>
+      </div>
+      <div class="player-info">
+        <div class="stat-label"><span class="s-label" data-ng-i18next="teamProfile.teamLeaders.assists"></span> <span class="pts">{{ tl.assistLeader.players[0].value }}</span></div>
+        <span class="name visible-sm"><a sib-player-urls team="tl.profile" data-ng-href="/players/#!/{{ tl.assistLeader.players[0].profile.code }}"><span data-ng-bind-html="tl.assistLeader.players[0].profile.firstName"></span><span data-ng-show="tl.assistLeader.players[0].profile.firstName"><span data-ng-i18next="delimiter.firstNameLastName"></span></span><span data-ng-bind-html="tl.assistLeader.players[0].profile.lastName"></span></a> <span class="position">{{ tl.assistLeader.players[0].profile.position }} / {{ tl.assistLeader.players[0].profile.jerseyNo }}</span></span>
+        <span class="name hidden-sm"><a sib-player-urls team="tl.profile" data-ng-href="/players/#!/{{ tl.assistLeader.players[0].profile.code }}"><span data-ng-bind-html="tl.assistLeader.players[0].profile.firstName"></span><span data-ng-show="tl.assistLeader.players[0].profile.firstName"><span data-ng-i18next="delimiter.firstNameLastName"></span></span><span data-ng-bind-html="tl.assistLeader.players[0].profile.lastName"></span></a> <span class="position">{{ tl.assistLeader.players[0].profile.position }} / {{ tl.assistLeader.players[0].profile.jerseyNo }}</span></span>
+      </div>
+    </div>
+  </div>
+
+</div>
+        <div  data-ng-hide="mobileAppViewMode">
+  			  
+<!--SSI /frags/licensee_team_social.html -->
+<!-- start of licensee team social -->
+<!-- Start Licensee team social Fragment -->
+<div class="sib-list sib-list-twitter-team">
+  <sib-team-twitter team-twitter="teamTwitter"></sib-team-twitter>
+</div>
+<!-- END Licensee team social Fragment -->
+<!-- end of licensee team social -->           </div>
+  		</div> 
+  		<div class="col-lg-6 col-sm-6 col-12"> 
+  		  <div data-ng-controller="TeamScheduleSnapshotController">
+  		      <!-- Start Season Series Matchups Module -->
+<div class="sib-table-container sib-table-team-schedule-snapshot">
+  <div class="table-title">
+    <div class="title">
+      <span data-ng-i18next="teamProfile.teamScheduleSnapshot.title"></span>
+    </div>
+  </div>
+
+  <table class="" border="0">
+    <tbody>
+      <tr>
+        <td class="sub-header" colspan="5" data-ng-i18next="teamProfile.teamScheduleSnapshot.nextGame"></td>
+      </tr>
+      <tr>
+        <td class="date">{{ nextGame.profile.utcMillis | date:'shortDate' }}<span data-ng-if="nextGame.ifNecessary">*</span></td>
+        <td class="results">
+          <span data-ng-show="nextGame.isHome == 'false'" data-ng-i18next="teamScheduleSnapshot.at"></span>
+          <span data-ng-show="nextGame.isHome == 'true'" data-ng-i18next="teamScheduleSnapshot.vs"></span>
+          <a data-ng-show="nextGame.isHome == 'true'" data-ng-href="/teams/#!/{{ nextGame.awayTeam.profile.code }}" class="anchor-unstyled" sib-team-urls team="nextGame.awayTeam.profile">
+            <sib-img-team team-abbr="nextGame.awayTeam.profile.abbr" league-id="teamStanding.league.id"></sib-img-team>
+          </a>
+          <a data-ng-show="nextGame.isHome == 'false'" data-ng-href="/teams/#!/{{ nextGame.homeTeam.profile.code }}" class="anchor-unstyled" sib-team-urls team="nextGame.homeTeam.profile">
+            <sib-img-team team-abbr="nextGame.homeTeam.profile.abbr" league-id="teamStanding.league.id"></sib-img-team>
+          </a>
+          <span data-ng-show="nextGame.isHome == 'true'" class="team-abbrv">{{ nextGame.awayTeam.profile.displayAbbr }}</span>
+          <span data-ng-show="nextGame.isHome == 'false'" class="team-abbrv">{{ nextGame.homeTeam.profile.displayAbbr }}</span>
+          <span>{{ nextGame.profile.utcMillis | date:'shortTime' }}</span>
+          <div data-ng-show="nextGame.broadcasters.length">
+            <table class="broadcast hidden-sm" border="0">
+              <tr>
+                <td>
+                  <sib-broadcaster-urls game="nextGame" broadcasters="nextGame.broadcasters" />
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        <td>
+
+          <!-- <div data-ng-repeat="url in nextGame.urls">
+            <a data-ng-href="{{ url.value }}"><span data-ng-bind-html="url.displayText"></span> <i data-ng-show="url.type == 'Live'" class="icon-play-circle"></i></a>
+          </div> -->
+          <sib-game-urls game="nextGame" placement="TeamProfile" />
+
+        </td>
+      </tr>
+      <tr>
+        <td class="sub-header" colspan="5" data-ng-i18next="teamProfile.teamScheduleSnapshot.pastGames"></td>
+      </tr>
+      <tr data-ng-repeat="game in previousGames | orderBy : '-profile.utcMillis'">
+        <td class="date">{{ game.profile.utcMillis | date:'shortDate' }}</td>
+        <td class="results">
+          <span data-ng-show="game.isHome == 'false'" data-ng-i18next="teamScheduleSnapshot.at"></span>
+          <span data-ng-show="game.isHome == 'true'" data-ng-i18next="teamScheduleSnapshot.vs"></span>
+          <a data-ng-show="game.isHome == 'true'" data-ng-href="/teams/#!/{{ game.awayTeam.profile.code }}" class="anchor-unstyled" sib-team-urls team="game.awayTeam.profile">
+            <sib-img-team team-abbr="game.awayTeam.profile.abbr" league-id="teamStanding.league.id"></sib-img-team>
+          </a>
+          <a data-ng-show="game.isHome == 'false'" data-ng-href="/teams/#!/{{ game.homeTeam.profile.code }}" class="anchor-unstyled" sib-team-urls team="game.homeTeam.profile">
+            <sib-img-team team-abbr="game.homeTeam.profile.abbr" league-id="teamStanding.league.id"></sib-img-team>
+          </a>
+          <span class="win-lose">
+            <span data-ng-show="game.winOrLoss == 'Won'">{{'teamScheduleSnapshot.w'|i18next}}</span>
+            <span data-ng-show="game.winOrLoss == 'Lost'">{{'teamScheduleSnapshot.l'|i18next}}</span>
+          </span>
+          <span><span>{{ game.teamScore }}</span> - <span>{{ game.oppTeamScore }}</span></span>
+        </td>
+        <td> <sib-game-urls game="game" placement="TeamProfile"></sib-game-urls></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="table-footer">
+    <span class="table-footer__legend" data-ng-if="nextGame.ifNecessary">*&nbsp;-&nbsp;<span data-ng-i18next="teamProfile.teamScheduleSnapshot.ifNecessary"></span></span>
+    <a class="footer-link" data-ng-href="/teams/schedule/#!/{{ team.profile.code }}" data-ng-i18next="teamProfile.teamScheduleSnapshot.link"></a>
+  </div>
+</div>
+<!-- End Season Series Matchups Module -->
+  		  </div> 
+  			<div class="sib-list sib-list-team-awards nba-awards" data-ng-show="showAwards">
+  <div class="list-title">
+    <span data-ng-i18next="teamProfile.teamAwards.title"></span>
+  </div>
+
+  <table class="stats-table table-responsive">
+    <tr>
+      <td class="spacer"></td>
+      <td></td>
+    </tr>
+    <tr data-ng-show="awards.championships">
+      <td class="icon"><i class="icon-trophy"></i></td>
+      <td class="achievements">
+        <p>
+          <strong>{{ awards.championships }}</strong>&nbsp;
+          <sib-pluralize
+            count="awards.championships"
+            when-one="teamProfile.teamAwards.championship.singular"
+            when-other="teamProfile.teamAwards.championship.plural">
+          </sib-pluralize>
+          <span class="years"> [{{ awardsCount.championships.dates.join(', ') }}]</span>
+        </p>
+      </td>
+    </tr>
+    <tr data-ng-show="awards.conferenceTitles">
+      <td class="icon"><i class="icon-trophy"></i></td>
+      <td class="achievements">
+        <p>
+          <strong>{{ awards.conferenceTitles }}</strong>&nbsp;
+          <sib-pluralize
+            count="awards.conferenceTitles"
+            when-one="teamProfile.teamAwards.conference.singular"
+            when-other="teamProfile.teamAwards.conference.plural">
+          </sib-pluralize>
+          <span class="years"> [{{ awardsCount.conferenceTitles.dates.join(', ') }}]</span>
+        </p>
+      </td>
+    </tr>
+    <tr data-ng-show="awards.divisionTitles">
+      <td class="icon"><i class="icon-trophy"></i></td>
+      <td class="achievements">
+        <p>
+          <strong>{{ awards.divisionTitles }}</strong>&nbsp;
+          <sib-pluralize
+            count="awards.divisionTitles"
+            when-one="teamProfile.teamAwards.division.singular"
+            when-other="teamProfile.teamAwards.division.plural">
+          </sib-pluralize>
+          <span class="years"> [{{ awardsCount.divisionTitles.dates.join(', ') }}]</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"></td>
+      <td></td>
+    </tr>
+  </table>
+  <div class="footer">
+    <!--
+    <a class="footer-link" data-ng-href="http://stats.nba.com/teamProfile.html?TeamID={{team.profile.id}}" target="_blank" data-ng-i18next="teamProfile.teamAwards.link"></a>
+     -->
+  </div>
+</div>
+  		</div>
+  	</div>   
+  </div>
+</section>
+                <!-- End content -->
+              </div>
+              
+              <div class='footer-container' data-ng-show="showFooter">    
+                                    
+                <!--SSI /frags/licensee_content_footer.html -->
+                <!-- Start Licensee Content Footer Fragment -->
+
+ <!-- SSI fork for esi or beo -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!--BEGIN content for url: https://www.beinsports.com/france/fragment/nba-footer--><footer class="beinsports">
+    <div class="footer">
+        <div class="sports_links line">
+            <div class="container-center line">
+                <div class="fl w84">
+                                          
+    <div class="sports_links_column">
+                                <span class="sports_links_title">
+                <a href="https://www.beinsports.com/france/football/"
+                        
+                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/195','taxonomyName':'Football'});"
+                >Football</a>
+            </span>
+            <ul class="sports_links_list"  itemscope="" itemtype="http://www.schema.org/SiteNavigationElement">
+                                                                                                                    <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/ligue-1/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/251','taxonomyName':'Ligue 1'});"
+                                >
+                                    Ligue 1
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/dominos-ligue-2/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/252','taxonomyName':'Ligue 2 BKT'});"
+                                >
+                                    Ligue 2
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/la-liga/"
+                                        
+                                                                                onclick=""
+                                >
+                                    La Liga
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/serie-a/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/266','taxonomyName':'Serie A'});"
+                                >
+                                    Serie A
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/bundesliga/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/208','taxonomyName':'Bundesliga'});"
+                                >
+                                    Bundesliga
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/premier-league/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/257','taxonomyName':'Premier League'});"
+                                >
+                                    Premier League
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/uefa-ligue-des-champions/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/272','taxonomyName':'UEFA Ligue des Champions'});"
+                                >
+                                    Ligue des Champions
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/uefa-ligue-europa/"
+                                        
+                                                                                onclick=""
+                                >
+                                    Europa League
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/mercato/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/42604','taxonomyName':'Mercato'});"
+                                >
+                                    Mercato
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/coupe-dafrique-des-nations/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/199','taxonomyName':'Coupe d\u0027Afrique des Nations'});"
+                                >
+                                    CAN Egypte 2019
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/copa-america/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/217','taxonomyName':'Copa America'});"
+                                >
+                                    Copa América 2019
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/fifa-coupe-du-monde-2018/"
+                                        
+                                                                                onclick=""
+                                >
+                                    Coupe du Monde 2018
+                                </a>
+                            </li>
+                                                                        </ul>
+                                <span class="sports_links_title">
+                <a href="https://www.beinsports.com/france/tennis/"
+                        
+                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/319','taxonomyName':'Tennis'});"
+                >Tennis</a>
+            </span>
+            <ul class="sports_links_list"  itemscope="" itemtype="http://www.schema.org/SiteNavigationElement">
+                                                                                                                    <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/atp-tour/"
+                                        
+                                        rel="nofollow"                                        onclick=""
+                                >
+                                    ATP World Tour
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/wta-tour/"
+                                        
+                                        rel="nofollow"                                        onclick=""
+                                >
+                                    WTA World Tour
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/wimbledon/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/329','taxonomyName':'Wimbledon'});"
+                                >
+                                    Wimbledon
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/roland-garros/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/328','taxonomyName':'Roland Garros'});"
+                                >
+                                    Roland Garros
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/us-open/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/330','taxonomyName':'US Open'});"
+                                >
+                                    US Open
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/open-daustralie/"
+                                        
+                                        rel="nofollow"                                        onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/327','taxonomyName':'Open d\u0027Australie'});"
+                                >
+                                    Open d&#039;Australie
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/coupe-davis/"
+                                        
+                                        rel="nofollow"                                        onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/323','taxonomyName':'Coupe Davis'});"
+                                >
+                                    Coupe Davis
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/billie-jean-king-cup/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/332','taxonomyName':'Billie Jean King Cup'});"
+                                >
+                                    Fed Cup
+                                </a>
+                            </li>
+                                                                        </ul>
+                                <span class="sports_links_title">
+                <a href="https://www.beinsports.com/france/rugby/"
+                        
+                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/298','taxonomyName':'Rugby'});"
+                >Rugby</a>
+            </span>
+            <ul class="sports_links_list"  itemscope="" itemtype="http://www.schema.org/SiteNavigationElement">
+                                                                                                                    <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/top-14/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/311','taxonomyName':'Top 14'});"
+                                >
+                                    Top 14
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/champions-cup/"
+                                        
+                                        rel="nofollow"                                        onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/300','taxonomyName':'Champions Cup'});"
+                                >
+                                    Champions Cup
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/challenge-cup/"
+                                        
+                                        rel="nofollow"                                        onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/310','taxonomyName':'Pro D2'});"
+                                >
+                                    Challenge Cup
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/six-nations/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/312','taxonomyName':'Six Nations'});"
+                                >
+                                    VI Nations
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/nrl/"
+                                        
+                                        rel="nofollow"                                        onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/305','taxonomyName':'NRL'});"
+                                >
+                                    NRL
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/super-league/"
+                                        
+                                        rel="nofollow"                                        onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/307','taxonomyName':'Super League'});"
+                                >
+                                    Super League
+                                </a>
+                            </li>
+                                                                        </ul>
+                                <span class="sports_links_title">
+                <a href="https://www.beinsports.com/france/basketball/"
+                        
+                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/180','taxonomyName':'Basketball'});"
+                >Basketball</a>
+            </span>
+            <ul class="sports_links_list"  itemscope="" itemtype="http://www.schema.org/SiteNavigationElement">
+                                                                                                                    <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/nba/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/183','taxonomyName':'NBA'});"
+                                >
+                                    NBA
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/euroligue/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/181','taxonomyName':'Euroligue'});"
+                                >
+                                    Euroligue
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/pro-a/"
+                                        
+                                                                                onclick=""
+                                >
+                                    Pro A
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/replay-nba-extra/"
+                                        
+                                                                                onclick=""
+                                >
+                                    NBA EXTRA
+                                </a>
+                            </li>
+                                                                        </ul>
+                                <span class="sports_links_title">
+                <a href="https://www.beinsports.com/france/handball/"
+                        
+                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/279','taxonomyName':'Handball'});"
+                >Handball</a>
+            </span>
+            <ul class="sports_links_list"  itemscope="" itemtype="http://www.schema.org/SiteNavigationElement">
+                                                                                                                    <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/lnh-division-1/"
+                                        
+                                        rel="nofollow"                                        onclick=""
+                                >
+                                    LIDL Starligue
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/ehf-ligue-des-champions/"
+                                        
+                                        rel="nofollow"                                        onclick=""
+                                >
+                                    EHF Champions League
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/euro-hand-feminin/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/47942','taxonomyName':'Euro hand f\u00e9minin'});"
+                                >
+                                    Euro hand féminin 2018
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/handball-championnat-du-monde/"
+                                        
+                                        rel="nofollow"                                        onclick=""
+                                >
+                                    Mondial Handball 2019
+                                </a>
+                            </li>
+                                                                                                                    </ul>
+                                <span class="sports_links_title">
+                <a href="https://www.beinsports.com/france/autres-sports/"
+                        
+                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/176','taxonomyName':'Autres sports'});"
+                >Autres sports</a>
+            </span>
+            <ul class="sports_links_list"  itemscope="" itemtype="http://www.schema.org/SiteNavigationElement">
+                                                                                                                    <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/athletisme/"
+                                        
+                                        rel="nofollow"                                        onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/178','taxonomyName':'Athl\u00e9tisme'});"
+                                >
+                                    Athlétisme
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/boxe/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/186','taxonomyName':'Boxe'});"
+                                >
+                                    Boxe
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/cyclisme/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/188','taxonomyName':'Cyclisme'});"
+                                >
+                                    Cyclisme
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/esport/"
+                                        
+                                        rel="nofollow"                                        onclick=""
+                                >
+                                    e-Sport
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/natation/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/318','taxonomyName':'Natation'});"
+                                >
+                                    Natation
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/nfl/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/177','taxonomyName':'NFL'});"
+                                >
+                                    NFL
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/sports-mecaniques/"
+                                        
+                                        rel="nofollow"                                        onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/293','taxonomyName':'Sports m\u00e9caniques'});"
+                                >
+                                    Sports Mécaniques
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/volley-ball/"
+                                        
+                                        rel="nofollow"                                        onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/342','taxonomyName':'Volley-ball'});"
+                                >
+                                    Volley-ball
+                                </a>
+                            </li>
+                                                                                                                            <li class="sports_links__item" itemprop="name">
+                                <a itemprop="url" href="https://www.beinsports.com/france/facebook/"
+                                        
+                                                                                onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'taxonomy','event':'navigation_click','taxonomyId':'\/taxonomies\/58822','taxonomyName':'facebook'});"
+                                >
+                                    Facebook
+                                </a>
+                            </li>
+                                                                        </ul>
+                                <span class="sports_links_title">
+                <a href="https://www.beinsports.com/france/livescores"
+                        
+                                                onclick=""
+                >Live scores</a>
+            </span>
+            <ul class="sports_links_list"  itemscope="" itemtype="http://www.schema.org/SiteNavigationElement">
+                            </ul>
+                                <span class="sports_links_title">
+                <a href="https://www.beinsports.com/france/videos"
+                        
+                                                onclick=""
+                >Vidéos</a>
+            </span>
+            <ul class="sports_links_list"  itemscope="" itemtype="http://www.schema.org/SiteNavigationElement">
+                            </ul>
+            </div>
+    <div class="block-sports_links__select">
+        <select class="bein-selectBox sports_links__select">
+            <option value="https://www.beinsports.com/france/">Accueil</option>
+                                            <option value="https://www.beinsports.com/france/football/" >Football</option>
+                                            <option value="https://www.beinsports.com/france/tennis/" >Tennis</option>
+                                            <option value="https://www.beinsports.com/france/rugby/" >Rugby</option>
+                                            <option value="https://www.beinsports.com/france/basketball/" >Basketball</option>
+                                            <option value="https://www.beinsports.com/france/handball/" >Handball</option>
+                                            <option value="https://www.beinsports.com/france/autres-sports/" >Autres sports</option>
+                                            <option value="https://www.beinsports.com/france/livescores" >Live scores</option>
+                                            <option value="https://www.beinsports.com/france/videos" >Vidéos</option>
+                    </select>
+    </div>
+
+                                    </div>
+                <div class="fr w16">
+                    <div class="mobile_stores v2">
+                            <div class="app">
+        <img class="bein_app_store lazyload" alt="beIN SPORTS" data-src="//assets.beinsports.com/3.2.8/images/beIN_SPORTS_App_Icon.svg" >
+
+                    <a href="https://itunes.apple.com/fr/app/bein-sports-news-videos-et/id1115211914?mt=8"
+               target="itunes_store"
+               rel="nofollow"
+               onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'app store','event':'navigation_click','store':'beIN SPORTS','device':'ios','link':'https:\/\/itunes.apple.com\/fr\/app\/bein-sports-news-videos-et\/id1115211914?mt=8'});"
+            >
+                <img class="app_store lazyload" alt="App store" data-src="//assets.beinsports.com/3.2.8/images/appstore__fr.svg"/>
+            </a>
+        
+                    <a href="https://play.google.com/store/apps/details?id=com.beinsports.andcontent&amp;hl=fr"
+               target="_blank"
+               rel="nofollow"
+               onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'app store','event':'navigation_click','store':'beIN SPORTS','device':'android','link':'https:\/\/play.google.com\/store\/apps\/details?id=com.beinsports.andcontent&hl=fr'});"
+            >
+                <img class="app_store lazyload" alt="Get it on Google Play" data-src="//assets.beinsports.com/3.2.8/images/google-play__fr.svg" />
+            </a>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer_links ">
+    <div class="container-center">
+        <div class="footer_links__cell w67">
+            <ul class="footer_links_list"  itemscope="" itemtype="http://www.schema.org/SiteNavigationElement">
+                                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://www.beinsports.com/france/contactez-nous/"  rel="nofollow">Contactez-nous</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://beinmediagroup.com/careers/" target="blank" rel="nofollow">Recrutement</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://www.beinsports.com/france/newsletters/"  rel="nofollow">Newsletter</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="http://sabonner.beinsports.com" target="blank" >Abonnement beIN SPORTS</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://www.beinsports.com/france/numeros-de-canaux/"  >Numéros de canaux</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="http://beinregie.beinsports.com/"  >beIN Régie</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://beinmediagroup.com/" target="blank" >beIN MEDIA GROUP</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://connect.beinsports.com/france/" target="blank" >beIN SPORTS CONNECT</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://www.beinsports.com/france/programmes"  >Grille TV</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://www.beinsports.com/fr/" target="blank" >beIN SPORTS MENA</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://www.beinsports.com/us/" target="blank" >beIN SPORTS USA</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://www.beinsports.com/au/" target="blank" >beIN SPORTS Australia</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="http://www.digiturk.com" target="top" >Digiturk</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://www.beinsports.com/france/cgu/"  rel="nofollow">CGU</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://www.beinsports.com/france/mentions-legales/"  rel="nofollow">Mentions légales</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://www.beinsports.com/france/cookies"  rel="nofollow">Cookies</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://www.beinsports.com/france/reglement"  >Réglement jeux-concours SMS</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://www.beinsports.com/france/protection-donnees"  >Protection des données</a>
+                        </li>
+                                                                    <li class="footer_links__item" itemprop="name">
+                            <a href="https://www.beinsports.com/france/marketing-promotion/"  >Promotion marketing</a>
+                        </li>
+                                                                <li class="footer_links__item" itemprop="name">
+                            <a href="#" onClick="Didomi.preferences.show();">Paramétrer mon consentement</a>
+                        </li>
+                                                </ul>
+        </div>
+
+        <div class="footer_links__cell  footer_links__cell-1 w33">
+            <div class="menu-lang">
+                <ul class="menu-lang__list">
+                                    </ul>
+            </div>
+            <div class="mobile_stores v2">
+                    <div class="app">
+        <img class="bein_app_store lazyload" alt="beIN SPORTS" data-src="//assets.beinsports.com/3.2.8/images/beIN_SPORTS_App_Icon.svg" >
+
+                    <a href="https://itunes.apple.com/fr/app/bein-sports-news-videos-et/id1115211914?mt=8"
+               target="itunes_store"
+               rel="nofollow"
+               onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'app store','event':'navigation_click','store':'beIN SPORTS','device':'ios','link':'https:\/\/itunes.apple.com\/fr\/app\/bein-sports-news-videos-et\/id1115211914?mt=8'});"
+            >
+                <img class="app_store lazyload" alt="App store" data-src="//assets.beinsports.com/3.2.8/images/appstore__fr.svg"/>
+            </a>
+        
+                    <a href="https://play.google.com/store/apps/details?id=com.beinsports.andcontent&amp;hl=fr"
+               target="_blank"
+               rel="nofollow"
+               onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'app store','event':'navigation_click','store':'beIN SPORTS','device':'android','link':'https:\/\/play.google.com\/store\/apps\/details?id=com.beinsports.andcontent&hl=fr'});"
+            >
+                <img class="app_store lazyload" alt="Get it on Google Play" data-src="//assets.beinsports.com/3.2.8/images/google-play__fr.svg" />
+            </a>
+            </div>
+            </div>
+            <div class="footer_link_socials">
+                <span class="footer_link_socials_title">Nous suivre</span>
+                <ul class="footer_link_socials_list">
+                                            <li class="footer_links_socials__item">
+                            <a href="https://www.facebook.com/beINSPORTSFrance" class="icon_link" target="_blank"
+                               rel="nofollow"                               onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'social','event':'navigation_click','social':'facebook','link':'https:\/\/www.facebook.com\/beINSPORTSFrance'});"
+                            >
+                                <i class="icon-facebook"></i>
+                            </a>
+                        </li>
+                                            <li class="footer_links_socials__item">
+                            <a href="https://twitter.com/beinsports_FR" class="icon_link" target="_blank"
+                               rel="nofollow"                               onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'social','event':'navigation_click','social':'twitter','link':'https:\/\/twitter.com\/beinsports_FR'});"
+                            >
+                                <i class="icon-twitter"></i>
+                            </a>
+                        </li>
+                                            <li class="footer_links_socials__item">
+                            <a href="https://www.youtube.com/user/beinsportofficiel" class="icon_link" target="_blank"
+                               rel="nofollow"                               onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'social','event':'navigation_click','social':'youtube','link':'https:\/\/www.youtube.com\/user\/beinsportofficiel'});"
+                            >
+                                <i class="icon-youtube"></i>
+                            </a>
+                        </li>
+                                            <li class="footer_links_socials__item">
+                            <a href="https://www.dailymotion.com/Beinsports-FR" class="icon_link" target="_blank"
+                               rel="nofollow"                               onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'social','event':'navigation_click','social':'dailymotion','link':'https:\/\/www.dailymotion.com\/Beinsports-FR'});"
+                            >
+                                <i class="icon-dailymotion"></i>
+                            </a>
+                        </li>
+                                            <li class="footer_links_socials__item">
+                            <a href="https://instagram.com/beinsports_fr/" class="icon_link" target="_blank"
+                               rel="nofollow"                               onclick="dataLayer.push({'eventCategory':'navigation','eventAction':'click','eventLabel':'social','event':'navigation_click','social':'instagram','link':'https:\/\/instagram.com\/beinsports_fr\/'});"
+                            >
+                                <i class="icon-instagram"></i>
+                            </a>
+                        </li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+</footer>
+
+<!--END content for url: https://www.beinsports.com/france/fragment/nba-footer-->
+
+
+
+<!-- END SSI fork for esi or beo -->
+
+
+<!-- End Licensee Content Footer Fragment -->
+     
+                 
+                <!--SSI /templates/fragments/footer/template.html -->
+                <!-- <div class='row stats-site-footer'>
+  <div class="col-12 footer">
+    <div class='footer-nav hidden-all-sites show-mi'>
+      <div class='col-6 explore' >
+        <h4 class='col-12' data-ng-i18next="navbar.explore"></h4>
+        <div class='col-sm-4'>
+          <a href="/scores/" >
+            <span data-ng-i18next="navbar.scores"></span>/<span data-ng-i18next="navbar.schedule"></span>
+          </a>
+        </div>        
+        <div class='col-sm-4'><a href="/standings/" data-ng-i18next="navbar.standings"></a></div>
+        <div class='col-sm-4'><a href="/schedule/broadcaster/" data-ng-i18next="navbar.broadcasterSchedule"></a></div>
+        <div class='col-sm-4'><a href="/statistics/" data-ng-i18next="navbar.stats"></a></div>
+        <div class='col-sm-4'><a href="/teamindex/" data-ng-i18next="navbar.teams"></a></div>
+        <div class='col-sm-4'><a href="/playerindex/" data-ng-i18next="navbar.players"></a></div>
+        <div class='col-sm-4'><a href="/statistics/teamstats/" data-ng-i18next="navbar.fullTeamStats"></a></div>
+        <div class='col-sm-4'><a href="/statistics/leagueleaders/" data-ng-i18next="navbar.leagueLeaders"></a></div>
+        <div class='col-sm-4 hidden-all-sites show-mi'><a href="/news/" data-ng-i18next="navbar.news"></a></div>
+ 
+        <div class='col-sm-4 hidden-all-sites show-mi'><a href="/photos.html#!" data-ng-i18next="navbar.photos"></a></div>                              
+      
+      </div>
+      <div class='col-6 more'>
+        <h4 class='col-12' data-ng-i18next="navbar.more"></h4>
+        <div class='col-sm-4'><a href="http://watch.nba.com/nba/video" data-ng-i18next="navbar.video"></a></div>
+        <div class='col-sm-4'><a href="http://watch.nba.com/nba/video" data-ng-i18next="navbar.vault"></a></div>
+        <div class='col-sm-4'><a href="http://watch.nba.com/channel/nbatvlive" data-ng-i18next="navbar.nbaTv"></a></div>
+        <div class='col-sm-4'><a href="http://watch.nba.com/packages" data-ng-i18next="navbar.leaguePass"></a></div>
+        <div class='col-sm-4'><a href="http://watch.nba.com/packages" data-ng-i18next="navbar.platforms"></a></div>
+        <div class='col-sm-4'><a href="http://watch.nba.com/packages" data-ng-i18next="navbar.packages"></a></div>
+        <div class='col-sm-4'><a href="http://support.watch.nba.com" data-ng-i18next="navbar.support"></a></div>
+        <div class='col-sm-4 hidden-all-sites show-mi'><a href="/key-dates/">Key Dates</a></div>
+        <div class='col-sm-4 hidden-all-sites show-mi'><a href="/nba-apps/">NBA Apps</a></div>
+        <div class='col-sm-4 hidden-all-sites show-mi'><a href="http://www.nba.com/global/storelinkhandler.html"  data-ng-i18next="_page.store"></a></div>        
+      </div>
+    </div> 
+    <p class='copyright clear-fix' data-ng-i18next="[html]footer"></p>
+  </div>
+</div>
+
+ -->
+ 
+ <footer class= "row">
+    <div id= "footer" class= "large-12 columns">
+        <p class="show-all-sites hidden-mi copyright clear-fix" data-ng-i18next="[html]footer"></p>    
+        <div class="hidden-all-sites show-mi">
+            <section id= "block-homepagefooter" class= "block-homepagefooter">
+                <div>
+                    <hr>
+                    <p>Copyright &copy; <em class= "placeholder">2016</em> NBA Media Ventures, LLC. All rights reserved.</p>
+                    <p><a href= "http://www.nba.com/news/privacy_policy.html">Privacy Policy</a> | <a href= "http://www.nba.com/news/termsofuse.html">Terms of Use</a> |
+                        <a id= "nba_cnsnt_trst" class= "nbaAdChoices"></a>
+                        <p>NBA.com is part of Turner Sports Digital, part of the Turner Sports &amp; Entertainment Digital Network.</p><img alt= "Turner Broadcasting System, Inc. A Time Warner Company." data-align= "center" data-entity-type= "file" src= "//i.cdn.turner.com/nba/nba/footer/turner_logo_200x35.png" /> </div>
+            </section>
+        </div>
+    </div>
+</footer>
+ 
+ 
+ 
+ 
+ 
+                                      
+            
+                  <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+  <!--[if lt IE 9]>
+    <script src="/scripts/libs/json3.min.js"></script>
+    <script src="/scripts/libs/ieshiv.js"></script>
+  <![endif]-->
+  <script>
+  // IE console.log fix
+  if (!window.console) {
+    console = {log: function() {}};
+  }
+  </script>
+
+  <script src="/scripts/libs.min.js" charset="UTF-8"></script>
+  <script src="/scripts/custom.min.js" charset="UTF-8"></script>
+                          
+                <!--SSI /frags/licensee_scripts_footer.html -->
+                <!-- Start Licensee Footer Scripts Fragment -->
+
+
+  <script src="https://www.beinsports.com/france/fragment/script/nba.js"></script>
+
+
+<script type="text/javascript">
+$('#app-container').append($('.footer-container'));
+</script>
+
+<!-- END: Override Section -->
+
+
+
+
+
+
+
+
+
+
+<!-- End Licensee Footer Scripts Fragment -->
+
+                
+              </div> <!-- /footer-container -->      
+                    
+            </div> <!-- /content-container -->
+            <div class="col-xl-2 visible-xl content-aside content-aside-right" data-ng-hide="mobileAppViewMode">
+              <!--SSI /frags/licensee_ad_right.html -->
+              <!-- Start licensee_ad_right -->
+<!-- End licensee_add_right -->                           
+            </div>
+            
+          </div> <!-- .row -->
+  
+        </div> <!-- /container -->
+        
+      </div> <!-- nba-container -->
+      
+    </div> <!-- /app-container -->
+    
+  </body>
+  
+</html>

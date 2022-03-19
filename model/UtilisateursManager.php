@@ -13,30 +13,32 @@ class UtilisateursManager extends Manager
     {
         $q=$this->manager
              ->db
-             ->prepare('INSERT INTO users(nom,prenom,login,password,isadmin,observation,active) 
+             ->prepare('INSERT INTO utilisateurs(nom,prenom,login,password,isadmin,observation,active) 
                         VALUES(:nom,:prenom,:login,:password,:isadmin,:observation,:active)');
              $user=$q->excute([
-                 ':nom', $user->getNom(),
-                 ':prenom', $user->getPrenom(),
-                 ':login', $user->getLogin(),
-                 ':password', $user->getPassword(),
-                 ':isadmin', $user->getIsadmin(),
-                 ':observation', $user->getObservation(),
-                 ':active', $user->getActive()
+                 'id'             => $user->getId(),
+                 ':nom'           => $user->getNom(),
+                 ':prenom'        => $user->getPrenom(),
+                 ':login'         => $user->getLogin(),
+                 ':password'      => $user->getPassword(),
+                 ':isadmin'       => $user->getIsadmin(),
+                 ':observation'   => $user->getObservation(),
+                 ':active'        => $user->getActive()
              ]);
 
              $user->hydrate([
-                 'id'=>$this->manager->db->lastInsertId()
+                 'id'=>$this->manager
+                            ->db
+                            ->lastInsertId()
              ]);
     }
 
     public function getUsers($login)
     {
-        $lst ='SELECT * FROM utilisateurs WHERE login=:login ';
         $q=$this->manager
                 ->db
-                ->prepare($lst);
-        $q->bindValue("login",$login, PDO::PARAM_STR);
+                ->prepare('SELECT * FROM utilisateurs WHERE login=:login');
+        $q->bindValue("login",$login, PDO::PARAM_STR_CHAR);
         $q->execute([
             'login'     =>$login
         ]);
@@ -47,16 +49,13 @@ class UtilisateursManager extends Manager
     }
 
     public function getUsersNb($login){
-        $nbuser='SELECT COUNT(*) FROM utilisateurs WHERE login=:login';
         $re=$this->manager
                   ->db
-                  ->prepare($nbuser);
-        $re->bindValue("login",$login, PDO::PARAM_STR);
+                  ->prepare('SELECT * FROM utilisateurs WHERE login=:login');
+        $re->bindValue("login",$login, PDO::PARAM_STR_CHAR);
         $re->execute([
             'login'     =>$login
         ]);
-        
-
         $conteur = $re->rowCount();
         return $conteur;
     }
@@ -95,7 +94,7 @@ class UtilisateursManager extends Manager
   {
     if (is_int($info))
     {
-     /* $q = $this->_db->query('SELECT id, nom, degats FROM personnages WHERE id = '.$info);*/
+    /* $q = $this->_db->query('SELECT id, nom, degats FROM personnages WHERE id = '.$info);*/
       $q = $this->manager
                 ->db
                 ->prepare('SELECT id, login, password FROM utilisateurs WHERE id = :id' );
