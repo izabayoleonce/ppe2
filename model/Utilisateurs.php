@@ -82,6 +82,8 @@ class Utilisateurs
     {
         if (is_string($observation)) {
             $this->_observation =$observation;
+        }else{
+            $this->_observation = "OK";
         }
     }
     

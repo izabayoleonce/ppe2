@@ -1,13 +1,16 @@
 <?php
-namespace ppe2\model;
+namespace model;
 
 use PDO;
 
 class Teams 
 {
     private $_id,
+            $_nomEntreneur,
+            $_prenomEntreneur,
             $_logo,
-            $_nomEquipe;
+            $_nomEquipe,
+            $_infoTeam;
     
     public function __construct(array $donnees)
     {
@@ -43,11 +46,29 @@ class Teams
             $this->_logo =$logo;
         }
     }
-    
+    public function setNomEntreneur($nomEntreneur)
+    {
+        if (is_string($nomEntreneur)) {
+            $this->_nomEntreneur = $nomEntreneur;
+        }
+    }
+    public function setPrenomEntreneur($prenomEntreneur)
+    {
+        if (is_string($prenomEntreneur)) {
+            $this->_prenomEntreneur = $prenomEntreneur;
+        }
+    }
     public function setNomEquipe($nomEquipe)
     {
         if (is_string($nomEquipe)) {
             $this->_nomEquipe =$nomEquipe;
+        }
+    }
+
+    public function setInfoTeam($infoTeam)
+    {
+        if (is_string($infoTeam)) {
+            $this->_infoTeam =$infoTeam;
         }
     }
     
@@ -62,9 +83,24 @@ class Teams
       return $this->_logo;
     }
 
+    public function getNomEntreneur()
+    {
+        return $this->_nomEntreneur;
+    }
+
+    public function getPrenomEntreneur()
+    {
+        return $this->_prenomEntreneur;
+    }
+
     public function getNomEquipe()
     {
       return $this->_nomEquipe;
+    }
+
+    public function getInfoTeam()
+    {
+        return $this->_infoTeam;
     }
 
     

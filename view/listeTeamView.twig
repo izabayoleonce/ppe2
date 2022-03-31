@@ -1,0 +1,63 @@
+{% extends "adminHomeView.twig" %}
+
+{% block body %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Entraineur</th>
+      <th scope="col">Logo</th>
+      <th scope="col">nom d'equipe </th>
+      <th scope="col">information complementaire</th>
+      
+    </tr>
+  </thead>
+    <tbody>
+   
+    {% for info in liste %}
+    <tr>
+      <th scope="row">{{info.nomEntreneur|e}}-{{info.prenomEntreneur|e}}</th>
+      <td><img src="{{info.logo}}" width="100" height="100" alt="France" data-src="{{info.logo}}"></td>
+      <td>{{info.nomEquipe|e}}</td>
+      <td>{{info.infoTeam|e}}</td>
+      <td>
+            <form class="form-inline" action="?controller=team&action=update" method="POST">
+                  <input type="hidden" value="{{info.nomEquipe|e}}" name="nom">
+                  <input type="submit"class="btn btn-outline-success" for="success-outlined" name="validate" value="Modifier">
+            </form>
+        </td>
+      <td>
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Supprimer
+            </button>
+            <form class="form-inline" action="?controller=team&action=delete" method="POST">
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">verification</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>étes-vous sûr de vouloir supprimer cette équiper</p>
+                                    <input type="hidden" value="{{info.nomEquipe|e}}" name="nom">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                    <input type="submit" class="btn btn-outline-danger" for="danger-outlined" name="euLieu" value="Supprimer">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                  
+                  
+            
+      </td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+   
+
+{% endblock %}

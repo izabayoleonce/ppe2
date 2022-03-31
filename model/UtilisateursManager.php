@@ -13,24 +13,24 @@ class UtilisateursManager extends Manager
     {
         $q=$this->manager
              ->db
-             ->prepare('INSERT INTO utilisateurs(nom,prenom,login,password,isadmin,observation,active) 
-                        VALUES(:nom,:prenom,:login,:password,:isadmin,:observation,:active)');
-             $user=$q->excute([
-                 'id'             => $user->getId(),
+             ->prepare('INSERT INTO utilisateurs(nom,prenom, mail,login,password, observation) 
+                        VALUES(:nom, :prenom, :mail, :login, :password, :observation)');
+             $user=$q->execute([
                  ':nom'           => $user->getNom(),
                  ':prenom'        => $user->getPrenom(),
+                 ':mail'          => $user->getEmail(),         
                  ':login'         => $user->getLogin(),
                  ':password'      => $user->getPassword(),
-                 ':isadmin'       => $user->getIsadmin(),
                  ':observation'   => $user->getObservation(),
-                 ':active'        => $user->getActive()
              ]);
-
-             $user->hydrate([
+            if($user){
+              $user->hydrate([
                  'id'=>$this->manager
                             ->db
                             ->lastInsertId()
              ]);
+            }
+             
     }
 
     public function getUsers($login)
@@ -79,14 +79,18 @@ class UtilisateursManager extends Manager
                   ->prepare('UPDATE utilisateurs SET
                         active = 1
                         WHERE id = :id');
-      $q->bindValue('1', $user->getActive(), PDO::PARAM_INT);
-      return $q->execute();
+      return $q->execute([
+        ':id'           => $user->getId(),
+      ]);
     }
     public function delete(Utilisateurs $user)
   {
-    return $this->manager
+    $q = $this->manager
                 ->db
-                ->exec('DELETE FROM utilisateurs WHERE id = :id'.$user->getId());
+                ->prepare('DELETE FROM utilisateurs WHERE id = :id');
+    return $q->execute([
+      ':id'           => $user->getId(),
+    ]);
   }
 
 

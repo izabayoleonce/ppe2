@@ -2,6 +2,9 @@
 
 namespace controller;
 
+use model\Resultats;
+use model\ResultatsManager;
+
 
 class HomeController extends Controller
 {
@@ -9,15 +12,21 @@ class HomeController extends Controller
 
     public function __construct()
     {
+        $this->ResultatManager = new ResultatsManager(); 
         parent::__construct();
         //$this->defaultAction();
+        
     }
 
 
     public function defaultAction()
     {
-
-         $data = ['test' => 'marche'];
+        $ResultatManager = new ResultatsManager;
+        $tabscore = $ResultatManager->getAllResultats();
+                
+            $data=[
+                'scores'        =>$tabscore,
+                    ];
          $this->render('home', $data);
     }
 

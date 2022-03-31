@@ -1,0 +1,38 @@
+{% extends "adminHomeView.twig" %}
+
+{% block body %}
+{% if changer is defined%}
+
+    <form action="?controller=evenement&action=updateValid" method="post" >
+        <input type="hidden" value="{{changer.id}}" name="id">
+            <div class="mb-3">
+                <label  class="form-label">Nom de l'entreneur</label>
+                <input type="text" class="form-control" name="nomEntreneur" id="exampleFormControlInput1" placeholder="" value="{{changer.nomEntreneur|upper|e}}" >
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Prenom de l'entreneur</label>
+                <input type="text" class="form-control" name="prenomEntreneur" id="exampleFormControlInput1" placeholder="" value="{{changer.prenomEntreneur|convert_encoding('UTF-8', 'ISO-8859-1')|e}}" >
+            </div>
+
+            <div class="mb-3">
+                <label  class="form-label">logo</label>
+                <input type="file"  placeholder="" name="logo" value="{{changer.logo|e}}">
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Nom de l'équipe</label>
+                <input type="text"  class="form-control" name="nomEquipe" id="exampleFormControlInput1" placeholder="" value="{{changer.nomEquipe|upper|e}}">
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Initiale</label>
+                <input type="text"  placeholder="" name="initiale" value="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">informatique</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="25" name="info">{{changer.infoTeam|e}}</textarea>
+            </div>
+            <div class="mb-3">
+                <input type="submit" class="btn btn-success"  placeholder="" name="Modifier" value="Modifier">
+            </div>
+    </form
+{% endif %}
+{% endblock %}
