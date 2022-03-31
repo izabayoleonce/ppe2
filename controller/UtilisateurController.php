@@ -26,20 +26,74 @@ class UtilisateurController extends Controller
 
     public function defaultAction()
     {
-        $data = ['test' => 'marche'];
-        $this->render('home', $data);
+        $ResultatManager = new ResultatsManager;
+        $tabscore = $ResultatManager->getAllResultats();
+                
+            $data=[
+                'scores'        =>$tabscore,
+                    ];
+         $this->render('home', $data);
     }
 
     public function connectAction()
     {
-        if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['password']) && !empty($_POST['password'])) {
+        if(isset($_COOKIE['connection'])){
+            $userManager = new UtilisateursManager();
+            $userData=[];
+            $userData = $userManager ->getUsers($_POST['login']);
+            $conteur = $userManager ->getUsersNb($_POST['login']);
+            $isadmin = $userData['isadmin'];
+            $re = $userData['active'];
+
+            if($conteur == 1 ) {
+                if ($isadmin == 1){
+                    $_SESSION['login'] = $userData['login'];
+                    $_SESSION['password'] = $userData['password'];
+                
+                    $data=[
+                        'login'=>$_SESSION['login'],
+                        'password'=>$_SESSION['password'],
+                    ];
+                
+                $this->render('adminHome', $data);
+                } 
+                elseif($isadmin == 0 && $re == 1 ){
+
+                    $tabscore = $this->ResultatManager->getAllResultats();
+                    $_SESSION['login']    = $userData['login'];
+                    $_SESSION['password'] = $userData['password'];
+                    $message = "Vous n'étes pas encors administrateur";
+                
+                    $data=[
+                        'login'         =>$_SESSION['login'],
+                        'password'      =>$_SESSION['password'],
+                        'scores'        =>$tabscore,
+                        'message'       =>$message,
+                    ];
+                    $this->render('userHome', $data);
+                }
+                
+                elseif($isadmin == 0 && $re == 0)
+                {
+                    $_SESSION['login'] = $userData['login'];
+                    $_SESSION['password'] = $userData['password'];
+                
+                    $data=[
+                        'login'=>$_SESSION['login'],
+                        'password'=>$_SESSION['password'],
+                    ];
+                    $this->render('nActive', $data);
+                }  
+            }
+        }elseif(isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['password']) && !empty($_POST['password'])) {
             $userManager = new UtilisateursManager();
             $userData=[];
             $userData = $userManager ->getUsers($_POST['login']);
             $conteur = $userManager ->getUsersNb($_POST['login']);
             $verifepassword = sodium_crypto_pwhash_str_verify($userData['password'], $_POST['password'] );
             $isadmin = $userData['isadmin'];
-            $re = $userData['actif'];
+            $re = $userData['active'];
+            setcookie("connection", $_POST['login'], time()+(60*60*24));
             // var_dump($userData);echo '</br>';echo '</br>';
             // var_dump($conteur);echo '</br>';echo '</br>';
             // var_dump($verifepassword);echo '</br>';echo '</br>';
@@ -65,11 +119,13 @@ class UtilisateurController extends Controller
                     $tabscore = $this->ResultatManager->getAllResultats();
                     $_SESSION['login']    = $userData['login'];
                     $_SESSION['password'] = $userData['password'];
+                    $message = "Vous n'étes pas encors administrateur";
                 
                     $data=[
                         'login'         =>$_SESSION['login'],
                         'password'      =>$_SESSION['password'],
                         'scores'        =>$tabscore,
+                        'message'       =>$message,
                     ];
                     $this->render('userHome', $data);
                 }
@@ -92,7 +148,12 @@ class UtilisateurController extends Controller
             }
         }
         else{        
-            $data = ['test' => 'marche'];
+            $ResultatManager = new ResultatsManager;
+            $tabscore = $ResultatManager->getAllResultats();
+                
+            $data=[
+                'scores'        =>$tabscore,
+            ];
             $this->render('home', $data);
         }
     }
@@ -108,6 +169,7 @@ class UtilisateurController extends Controller
         if (isset($_POST['valider'])){
             if (isset($_POST['nom']) && !empty($_POST['nom']) 
             && isset($_POST['prenom']) && !empty($_POST['prenom']) 
+            && isset($_POST['mail']) && !empty($_POST['mail'])
             && isset($_POST['login']) && !empty($_POST['login']) 
             && isset($_POST['password']) && !empty($_POST['password']))
             {
@@ -115,7 +177,9 @@ class UtilisateurController extends Controller
                 $Data=[
                     'nom'       =>$_POST['nom'],
                     'prenom'    =>$_POST['prenom'],
-                    'login'     =>$_POST['login'], 
+                    'login'     =>$_POST['login'],
+                    'email'     =>$_POST['mail'],
+                    'observation'=>"", 
                     'password'  =>$getpassword];
                 $Users = new Utilisateurs($Data);
                 $userManager = new UtilisateursManager();
@@ -129,7 +193,7 @@ class UtilisateurController extends Controller
                     $this->userManager->add($Users);
                     
                     
-                    $_SESSION['login'] = $Users['login'];
+                    $_SESSION['login'] = $_POST['login'];
                     $_SESSION['password'] = $verifepassword;
                     $data = [
                         'login'=>$_SESSION['login'],
@@ -153,7 +217,8 @@ class UtilisateurController extends Controller
 
     }
 
-    public function listUsersAction(){
+    public function listUsersAction()
+    {
         $listUser = $this->userManager->getAllUser();
 
         $data = [
@@ -179,18 +244,31 @@ class UtilisateurController extends Controller
              }else{
                     $message = "l'utilisateur a bien été remplacer";
              }
-             $this->_listUser = $this->userManager->getAllUser();
+             $listUser = $this->userManager->getAllUser();
              $data = [
-                 'listusers'      => $this->_listUser,
+                 'listUsers'      => $listUser,
                  'message'           => $message,
              ];
              $this->render('listUser', $data );
         }
     }
 
-    public function update()
+    public function updateAction()
     {
-        
+        if(isset( $_REQUEST['id'] ) ){
+            $userData = $this->userManager->get((int)$_REQUEST['id']);
+             if ($this->userManager->update($userData)) {
+                 $message = "L'utilisateur <b>" . $userData->getLogin() . '</b> a été activer.';
+             }else{
+                    $message = "l'utilisateur a bien été remplacer";
+             }
+             $listUser = $this->userManager->getAllUser();
+             $data = [
+                 'listUsers'      => $listUser,
+                 'message'           => $message,
+             ];
+             $this->render('listUser', $data );
+        }
     }
 
     /**
