@@ -74,7 +74,7 @@ class TeamController extends Controller
                 'nomEquipe'                 => $_POST['nomEquipe'],
             ];
  
-            $team = new Teams($Data);
+            $teams   = new Teams($Data);
             $teamAdv = new Teams($DataAdv);
             $this->teamsManager->updateTeam($team);
             $this->teamsManager->updateTeamadv($teamAdv);
@@ -100,6 +100,7 @@ class TeamController extends Controller
     public function deleteAction()
     {
         if(isset( $_POST['nom'])){
+            $this->teamsManager = new TeamsManager();
             $teamData   = $this->teamsManager->getTeams($_POST['nom']);
             $deleteTeam = $this->teamsManager->deleteTeam($teamData);
             $deleteTeamadv = $this->teamsManager->deleteTeamadv($teamData);

@@ -46,14 +46,14 @@ class TeamsManager extends Manager
         ]);
     }
 
-    public function updateTeamAdv(Teams $teams)
+    public function updateTeamAdv(Teams $teamAdv)
     {
         $q=$this->manager
                       ->db
                       ->prepare('UPDATE Teamsadv SET  logoAdv=:logo, nomEquipeAdv=:nomEquipe  WHERE nomEquipeAdv = :nomEquipe');
         return $q->execute([
-            ':logo'                    => $teams->getLogo(),
-            ':nomEquipe'               => $teams->getNomEquipe(),
+            ':logo'                    => $teamAdv->getLogo(),
+            ':nomEquipe'               => $teamAdv->getNomEquipe(),
         ]);
     }
 

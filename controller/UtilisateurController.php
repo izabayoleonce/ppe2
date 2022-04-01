@@ -40,9 +40,10 @@ class UtilisateurController extends Controller
         if(isset($_COOKIE['connection'])){
             $userManager = new UtilisateursManager();
             $userData=[];
-            $userData = $userManager ->getUsers($_POST['login']);
-            $conteur = $userManager ->getUsersNb($_POST['login']);
+            $userData = $userManager ->getUsers($_COOKIE['connection']);
+            $conteur = $userManager ->getUsersNb($_COOKIE['connection']);
             $isadmin = $userData['isadmin'];
+            #actiive: c.-à-d que l'utilisateur a été activer comme contributeur
             $re = $userData['active'];
 
             if($conteur == 1 ) {
@@ -70,7 +71,7 @@ class UtilisateurController extends Controller
                         'scores'        =>$tabscore,
                         'message'       =>$message,
                     ];
-                    $this->render('userHome', $data);
+                    $this->render('contributeurHome', $data);
                 }
                 
                 elseif($isadmin == 0 && $re == 0)
@@ -85,7 +86,14 @@ class UtilisateurController extends Controller
                     $this->render('nActive', $data);
                 }  
             }
-        }elseif(isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['password']) && !empty($_POST['password'])) {
+        }
+        else{
+            $data=[];
+            $this->render("connection", $data);
+        }
+    }
+    public function connectionValidAction(){
+        if(isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['password']) && !empty($_POST['password'])) {
             $userManager = new UtilisateursManager();
             $userData=[];
             $userData = $userManager ->getUsers($_POST['login']);
