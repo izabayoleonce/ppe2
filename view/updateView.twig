@@ -1,10 +1,19 @@
 {% extends "adminHomeView.twig" %}
 
 {% block body %}
+
+{# <pre>
+    {{ dump(changer) }}
+</pre> #}
+{% if message is defined %}
+    <br/><div class="text-danger bg-dark">{{message|raw}}</div><br/><br/>
+{% endif %}
+
 {% if changer is defined%}
 
-    <form action="?controller=evenement&action=updateValid" method="post" >
+    <form action="?controller=team&action=updateValid" class="row g-3 needs-validation" novalidate method="post"  enctype="multipart/form-data">
         <input type="hidden" value="{{changer.id}}" name="id">
+        <input type="hidden" value="1" name="update">
             <div class="mb-3">
                 <label  class="form-label">Nom de l'entreneur</label>
                 <input type="text" class="form-control" name="nomEntreneur" id="exampleFormControlInput1" placeholder="" value="{{changer.nomEntreneur|upper|e}}" >
@@ -16,14 +25,19 @@
 
             <div class="mb-3">
                 <label  class="form-label">logo</label>
-                <input type="file"  placeholder="" name="logo" value="{{changer.logo|e}}">
+
+                <input type="hidden" value="{{changer.logo|e}}" name="curLogo">
+
+                <img src="{{changer.logo|e}}" width="80" height="70" alt="France" data-src="{{changer.logo|e}}"><br/>
+                <input type="file"  placeholder="Cliquez pour Modifiez le logo" name="logo" value="{{changer.logo|e}}">
             </div>
             <div class="mb-3">
                 <label  class="form-label">Nom de l'équipe</label>
                 <input type="text"  class="form-control" name="nomEquipe" id="exampleFormControlInput1" placeholder="" value="{{changer.nomEquipe|upper|e}}">
             </div>
             <div class="mb-3">
-                <label  class="form-label">Initiale</label>
+                <label  class="form-label">Initiale</label><br>
+                <small>Example: ATL</small>
                 <input type="text"  placeholder="" name="initiale" value="">
             </div>
             <div class="mb-3">
@@ -33,6 +47,7 @@
             <div class="mb-3">
                 <input type="submit" class="btn btn-success"  placeholder="" name="Modifier" value="Modifier">
             </div>
-    </form
+    </form>
 {% endif %}
+
 {% endblock %}

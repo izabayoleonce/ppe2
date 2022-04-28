@@ -21,7 +21,7 @@
       <td>{{info.infoTeam|e}}</td>
       <td>
             <form class="form-inline" action="?controller=team&action=update" method="POST">
-                  <input type="hidden" value="{{info.nomEquipe|e}}" name="nom">
+                  <input type="hidden" value="{{info.id}}" name="id">
                   <input type="submit"class="btn btn-outline-success" for="success-outlined" name="validate" value="Modifier">
             </form>
         </td>
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>étes-vous sûr de vouloir supprimer cette équiper</p>
-                                    <input type="hidden" value="{{info.nomEquipe|e}}" name="nom">
+                                    <input type="hidden" value="{{info.id}}" name="id">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
@@ -58,6 +58,4 @@
     
   </tbody>
 </table>
-   
-
 {% endblock %}
