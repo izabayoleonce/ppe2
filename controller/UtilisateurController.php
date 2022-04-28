@@ -27,7 +27,7 @@ class UtilisateurController extends Controller
     public function defaultAction()
     {
         $ResultatManager = new ResultatsManager;
-        $tabscore = $ResultatManager->getAllResultats();
+        $tabscore = $ResultatManager->getAllResultatsDay();
                 
             $data=[
                 'scores'        =>$tabscore,
@@ -92,7 +92,8 @@ class UtilisateurController extends Controller
             $this->render("connection", $data);
         }
     }
-    public function connectionValidAction(){
+    public function connectionValidAction()
+    {
         if(isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['password']) && !empty($_POST['password'])) {
             $userManager = new UtilisateursManager();
             $userData=[];
@@ -157,7 +158,7 @@ class UtilisateurController extends Controller
         }
         else{        
             $ResultatManager = new ResultatsManager;
-            $tabscore = $ResultatManager->getAllResultats();
+            $tabscore = $ResultatManager->getAllResultatsDay();
                 
             $data=[
                 'scores'        =>$tabscore,

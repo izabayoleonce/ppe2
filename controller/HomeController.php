@@ -22,7 +22,7 @@ class HomeController extends Controller
     public function defaultAction()
     {
         $ResultatManager = new ResultatsManager;
-        $tabscore = $ResultatManager->getAllResultats();
+        $tabscore = $ResultatManager->getAllResultatsDay();
                 
             $data=[
                 'scores'        =>$tabscore,
