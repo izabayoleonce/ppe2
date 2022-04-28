@@ -25,10 +25,10 @@ class TeamsManager extends Manager
     {
         $q = $this->manager
                   ->db
-                  ->prepare( 'SELECT * FROM Teams WHERE nomEquipe = :nom' );
-        $q->execute([':nom' => $info]);
+                  ->prepare( 'SELECT * FROM Teams WHERE id = :id' );
+        $q->execute([':id' => $info]);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
- 
+
         return $donnees;
     }
 
@@ -36,8 +36,9 @@ class TeamsManager extends Manager
     {
         $q=$this->manager
                       ->db
-                      ->prepare('UPDATE Teams SET nomEntreneur=:nomEntreneur, prenomEntreneur=:prenomEntreneur, logo=:logo, nomEquipe=:nomEquipe, infoTeam=:infoTeam   WHERE nomEquipe=:nomEquipe');
+                      ->prepare('UPDATE Teams SET nomEntreneur=:nomEntreneur, prenomEntreneur=:prenomEntreneur, logo=:logo, nomEquipe=:nomEquipe, infoTeam=:infoTeam   WHERE id=:id');
         return $q->execute([
+            ':id'                      => $teams->getId(),
             ':prenomEntreneur'         => $teams->getPrenomEntreneur(),
             ':nomEntreneur'            => $teams->getNomEntreneur(),
             ':logo'                    => $teams->getLogo(),
