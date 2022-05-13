@@ -17,7 +17,6 @@
         <a class="nav-link active" aria-current="page" href="?controller=home&action=default">Acceuil</a>
         <a class="nav-link" href="?controller=team&action=infoTeam">information relative aux equipe</a>
         <a class="nav-link" href="?controller=resultat&action=resultatForDays">Resultats par jour</a>
-        <a class="nav-link" href="#">classemnt des équipes</a>
         <a class="nav-link"  href="?controller=utilisateur&action=connect" tabindex="-1" aria-disabled="true"> <button class="btn btn-primary">Connection</button></a>
     </nav>
   </div>
@@ -37,7 +36,7 @@
     {% for score in scores %}
     <tr>
       <th scope="row">{{score.dates|date("d/m/Y")}}</th>
-      <td><span><img src="{{score.logo1}}" width="20" height="20" alt="France" data-src="{{score.logo1}}"></span><span>{{score.nomEquipe}}</span></td>
+      <td><span><img src="{{score.logo1}}" width="20" height="20" alt="France" data-src="{{score.logo1}}" /></span><span>{{score.nomEquipe}}</span></td>
       <td>{{score.scoresE1}}-{{score.scoresE2}}</td>
       <td><span><img src="{{score.logo2}}" width="20" height="20" alt="France" data-src="{{score.logo2}}"></span><span>{{score.nomEquipeAdv}}</span></td>
     </tr>

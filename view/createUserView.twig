@@ -1,32 +1,33 @@
 {% extends "Pagelayout.html.twig" %}
 
 {% block header %}
-<h1>S'inscrire</h1>
 {% endblock %}
 {% block body %}
 <section class="vh-100 bg-image"
-  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  style="background-image: url('https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg):focal(1585x749:1587x747)/origin-imgresizer.eurosport.com/2017/10/23/2193314-45823610-2560-1440.jpg');">
 <style>
-.gradient-custom-3 {
-/* fallback for old browsers */
-background: #84fab0;
+  .gradient-custom-3 {
+  /* fallback for old browsers */
+  background: #84fab0;
 
-/* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
 
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
-}
-.gradient-custom-4 {
-/* fallback for old browsers */
-background: #84fab0;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+  }
+  .gradient-custom-4 {
+  /* fallback for old browsers */
+  background: #84fab0;
 
-/* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
 
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
-}
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+  background-size: cover;
+  background-position: center;
+  }
 </style>
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
@@ -34,44 +35,58 @@ background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
-              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+              <h2 class="text-uppercase text-center mb-5"> S'inscrire </h2>
 
-              <form>
-
+              <form  action="?controller=utilisateur&action=createValid" method="post" name="create">
+                <input type="hidden" value="par defaut" name="observation">
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example1cg">Your Name</label>
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="nom" value=""/>
+                  <label class="form-label" for="form3Example1cg">Nom</label>
                 </div>
-
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example3cg">Your Email</label>
-                </div>
-
-                <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example4cg">Password</label>
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="prenom" value=""/>
+                  <label class="form-label" for="form3Example1cg">Prenom</label>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="login" value=""/>
+                  <label class="form-label" for="form3Example1cg">login</label>
                 </div>
 
-                <div class="form-check d-flex justify-content-center mb-5">
-                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
-                  <label class="form-check-label" for="form2Example3g">
-                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
-                  </label>
+                <div class="form-outline mb-4">
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" name="mail" value=""/>
+                  <label class="form-label" for="form3Example3cg">Votre e-mail</label>
                 </div>
 
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" name="password" value=""/>
+                  <label class="form-label" for="form3Example4cg">Mot de Passe</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" name="passwordVerifi" value=""/>
+                  <label class="form-label" for="form3Example4cdg">Repeter votre mot de passe</label>
+                </div>
+                {% if message is defined %}
+                  <div id="passwordIn" class="text-danger">
+                    {{message}}
+                  </div>
+                {% endif %}
+
+                {% if msg is defined %}
+                  <div id="errerDeRemplissage" class="text-danger">
+                    {{msg}}
+                  </div>
+                {% endif %}
+
+                
                 <div class="d-flex justify-content-center">
-                  <button type="button"
-                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                  <button type="submit" name="valider"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">inscrire</button>
                 </div>
 
-                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
-                    class="fw-bold text-body"><u>Login here</u></a></p>
+                <p class="text-center text-muted mt-5 mb-0">Avez-vous dèjà un compte? Cliquez ici pour se <a href="?controller=utilisateur&action=connect"
+                    class="fw-bold text-body"><u>Connecter</u></a></p>
 
               </form>
 
@@ -82,24 +97,24 @@ background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244
     </div>
   </div>
 </section>
-    <section class="inscrire">
+    {# <section class="inscrire">
         <form action="?controller=utilisateur&action=createValid" method="post" name="create">
             <input type="hidden" value=0 name="observation">
             <input type="hidden" value=0 name="active">
-            <input type="text" value""  class="form-control" name="nom" placeholder="nom" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text"  class="form-control" name="nom" value="" placeholder="nom" aria-label="Username" aria-describedby="basic-addon1">
             </br>
-            <input type="text" value"" class="form-control" name="prenom" placeholder="prenom">
+            <input type="text" class="form-control" name="prenom" value="" placeholder="prenom">
             </br>
-            <input type="text" value="" class="form-control" name="login" placeholder="login">
+            <input type="text" class="form-control" name="login" value="" placeholder="login">
             </br>
-            <input type="text" value="" class="form-control" name="mail" placeholder="Votre e-mail">
+            <input type="text" class="form-control" name="mail" value="" placeholder="Votre e-mail">
             </br>
-            <input type="password" value="" class="form-control" name="password" placeholder="password">
+            <input type="password" class="form-control" name="password" value="" placeholder="password">
             </br>
            {# <textarea class="form-control" placeholder="observation"name="observation" id="floatingTextarea2" style="height: 100px"></textarea>
-            </br>#}
+            </br>
             <input type="submit" class="btn btn-primary" value="Valider" name="valider">
-    </section>
+    </section> #}
 {% endblock %}
 {% block footer
  %}{% endblock %}

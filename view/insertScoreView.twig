@@ -1,6 +1,41 @@
-{% extends "userHomeView.twig" %}
+{% extends "adminhomeView.twig" %}
 
 {% block body %}
-    
-
+<div class="content"  height="40px">
+    <div class="mb-3">
+        <p>        </p>
+    </div>
+    <div class="mb-5">
+        
+    </div>
+    <div class="container">
+        <table class="table">
+        <a  class="btn btn-primary"  href="?controller=resultat&action=createResultat">Nouveau score</a>
+        <thead class="text-center">
+            <tr>
+            <th scope="col">date</th>
+            <th scope="col">Equipe à domicile</th>
+            <th scope="col">score</th>
+            <th scope="col">Equipe à l'exterieur</th>
+            </tr>
+        </thead>
+            <tbody>
+            {% for score in scores %}
+            <tr>
+                <form action="?controller=resultat&action=updateScores" method="post">
+                    <input type="hidden" name="idScores" value="{{score.id}}"/>
+                    <input type="hidden" name="idUser" value="{{user.id}}"/>
+                    <th scope="row">{{score.dates|date("d/m/Y")}}</th>
+                    <td><span><img src="{{score.logo1}}" width="20" height="20" alt="France" data-src="{{score.logo1}}"></span><span>{{score.nomEquipe}}</span></td>
+                    <td><input type="number" name="scoreE1" value="{{score.scoresE1}}"/>-<input type="number" name="scoreE2" value="{{score.scoresE2}}"/></td>
+                    <td><span><img src="{{score.logo2}}" width="20" height="20" alt="France" data-src="{{score.logo2}}"></span><span>{{score.nomEquipeAdv}}</span></td>
+                    <td><input type="submit" class="btn btn-success" name="modifier" value="Modifier"/></td>
+                </form>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}

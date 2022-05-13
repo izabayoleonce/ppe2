@@ -1,4 +1,4 @@
-{% extends "adminHomeView.twig" %}
+{% extends "adminhomeView.twig" %}
 
 {% block body %}
 <h1>Utilisateur</h1>
@@ -10,6 +10,7 @@
       <th scope="col">Login</th>
       <th scope="col">Active<rh>
       <th scope="col">Activer</th>
+      <th scope="col">Modifier</th>
       <th scope="col">Supprimer</th>
     </tr>
   </thead>
@@ -27,9 +28,22 @@
           oui
         {% endif %}</td>
         <td>
+          <div class="dd-grid gap-2 d-md-block">
+            <form class="form-inline" action="?controller=utilisateur&action=update" method="POST">
+              <input type="hidden" value="{{utilisateur.id|e}}" name="id">
+                <input type="submit" class="btn btn-outline-success me-md-5" for="success-outlined" name="validate" value="✔">
+            </form> 
+            
+            <form class="form-inline" action="?controller=utilisateur&action=updateNon" method="POST">
+              <input type="hidden" value="{{utilisateur.id|e}}" name="id">
+              <input type="submit" class="btn btn-outline-danger" for="danger-outlined"  name="validate" value="x" />           
+            </form>
+          </div>
+        </td>
+        <td>
             <form class="form-inline" action="?controller=utilisateur&action=update" method="POST">
                   <input type="hidden" value="{{utilisateur.id|e}}" name="id">
-                  <input type="submit"class="btn btn-outline-success" for="success-outlined" name="validate" value="✔">
+                  <input type="submit"class="btn btn-outline-success" for="success-outlined" name="validate" value="Modifier">
             </form>
         </td>
         <td>
@@ -56,12 +70,13 @@
 </table>
   
 <table>
-    <tbody>
-      <a type="submit" class="btn btn-dark" href="?controller=utilisateur&action=create"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+  <tbody>
+    <a type="submit" class="btn btn-dark" href="?controller=utilisateur&action=create">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
         <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
         <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-        </svg>créer un nouvelle utilisateur
-      </a> 
-    </tbody>
+      </svg>créer un nouvel utilisateur
+    </a> 
+  </tbody>
 </table>
 {% endblock %}

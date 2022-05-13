@@ -7,7 +7,8 @@ use model\Utilisateurs;
 use PDO;
 
 class UtilisateursManager extends Manager
-{   public $_userData,
+{  
+   public $_userData,
            $_statut;
     public function add(Utilisateurs $user)
     {
@@ -48,7 +49,8 @@ class UtilisateursManager extends Manager
         
     }
 
-    public function getUsersNb($login){
+    public function getUsersNb($login)
+    {
         $re=$this->manager
                   ->db
                   ->prepare('SELECT * FROM utilisateurs WHERE login=:login');
@@ -78,6 +80,17 @@ class UtilisateursManager extends Manager
                   ->db
                   ->prepare('UPDATE utilisateurs SET
                         active = 1
+                        WHERE id = :id');
+      return $q->execute([
+        ':id'           => $user->getId(),
+      ]);
+    }
+    public function updateNA(Utilisateurs $user)
+    {
+      $q = $this->manager
+                  ->db
+                  ->prepare('UPDATE utilisateurs SET
+                        active = 0
                         WHERE id = :id');
       return $q->execute([
         ':id'           => $user->getId(),

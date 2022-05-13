@@ -13,7 +13,10 @@ class Resultats
             $_scoreE2,
             $_pointE2,
             $_id_team2,
-            $_date;
+            $_date,
+            $_aller,
+            $_retour;
+
 
 
     const POINT_GAGNANT = 3;
@@ -92,7 +95,7 @@ class Resultats
     public function setPointE1($pointE1)
     {
         $pointE1 = (int) $pointE1;
-        if ($pointE1 >= 0 && $pointE1 <= 1000) {
+        if ($pointE1 >= 0 && $pointE1 <= 1) {
             $this->_pointE1 =$pointE1;
         }
     }
@@ -100,7 +103,7 @@ class Resultats
     {
         $pointE2 = (int) $pointE2;
         
-        if ($pointE2 >= 0 && $pointE2 <= 1000) {
+        if ($pointE2 >= 0 && $pointE2 <= 1) {
             $this->_pointE2 =$pointE2;
         }
     }
@@ -115,10 +118,33 @@ class Resultats
 
     public function setDate($date)
     {
-        if (is_int($date)) {
+        
             $this->_date =$date;
-        }
     }
+    public function setAller($aller)
+    {
+        $aller = (int) $aller;
+        
+        if ($aller != null && $aller = 1) {
+            $this->_aller =$aller;
+        }else{
+            $this->_aller = 0;
+        }
+
+    }
+
+    public function setRetour($retour)
+    {
+        $retour = (int) $retour;
+        
+        if ($retour != null && $retour = 1) {
+            $this->_retour =$retour;
+        }else{
+            $this->_retour = 0;
+        }
+
+    }
+    
 
 
 
@@ -164,7 +190,16 @@ class Resultats
     public function getDate()
     {
         return $this->_date;
-    }   
+    } 
+    public function getAller()
+    {
+        return $this->_aller;
+    }
+    
+    public function getRetour()
+    {
+        return $this->_retour;
+    }
 
 }
 

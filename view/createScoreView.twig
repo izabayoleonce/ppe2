@@ -1,0 +1,74 @@
+{% extends "adminhomeView.twig" %}
+
+{% block body %}
+ <div class="mb-3">
+        <p>        </p>
+    </div>
+    <div class="mb-5">
+        <p>
+
+        </p>
+    </div>
+<form action="?controller=resultat&action=createValidateResultat" method="post">
+    <fieldest>
+        <legend>Insert un Nouveau Score</legend>
+        <input type='hidden' value='{{user.id}}' name='iduser' />
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form4Example2">journée</label>
+            <input type="number" id="form4Example2" class="form-control" name="journee"  value="" max(20)/>
+        </div>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form4Example2">date</label>
+            <input type="date" id="form4Example2" class="form-control" name="date" value="" />
+        </div>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form4Example1">Nom d'éauipe à domicile</label>
+            <select class="selectpicker show-tick" name="idE1" value="">
+                {% for lst in liste %}
+                    <option value="{{lst.id}}">{{lst.nomEquipe}}</option>
+                {% endfor %}
+                
+            </select>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form4Example2">score d'éauipe à domicile</label>
+            <input type="number" id="form4Example2" class="form-control" name="scoreE1"  value="" />
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form4Example2">score d'éauipe à domicile</label>
+            <input type="number" id="form4Example2" class="form-control" name="scoreE2" value="" />
+        </div>
+
+        
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form4Example1">Nom d'éauipe Visiteur</label>
+            <select class="selectpicker show-tick" name="idE2" value="">
+                {% for lst in liste %}
+                    <option value="{{lst.id}}">{{lst.nomEquipe}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="aller" value="1" id="form2Example34"/>
+            <label class="form-check-label" for="form2Example34">Aller</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" name="retour" id="form2Example34" />
+            <label class="form-check-label" for="form2Example34"> Retour</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mb-4">Insert</button>
+    </fieldest>
+</form>
+
+{% if msg is defined %}
+<div class="alert alert-danger" role="alert">
+  {{msg}}
+</div> 
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "adminhomeView.twig" %}
+
+{% block body %}
+<form>
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        <input type="text" id="form6Example1" class="form-control" />
+        <label class="form-label" for="form6Example1">Nom d'entreneur</label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+        <input type="text" id="form6Example2" class="form-control" />
+        <label class="form-label" for="form6Example2">Preom d'entreneur</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Text input -->
+  <div class="form-outline mb-4">
+    <input type="file" id="form6Example3" class="form-control" />
+    <label class="form-label" for="form6Example3">logo</label>
+  </div>
+
+  <!-- Text input -->
+  <div class="form-outline mb-4">
+    <input type="text" id="form6Example4" class="form-control" />
+    <label class="form-label" for="form6Example4">Nom de l'équipe</label>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <small>Example: ATL</small><input type="email" id="form6Example5" class="form-control" />
+    <label class="form-label" for="form6Example5">Initiale</label>
+  </div>
+
+  <!-- Message input -->
+  <div class="form-outline mb-4">
+    <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+    <label class="form-label" for="form6Example7">information</label>
+  </div>
+
+  
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4" name="modifier">Modifier</button>
+</form>
+{% endblock %}

@@ -52,15 +52,16 @@ class UtilisateurController extends Controller
                     $_SESSION['password'] = $userData['password'];
                 
                     $data=[
-                        'login'=>$_SESSION['login'],
-                        'password'=>$_SESSION['password'],
+                        'login'     =>$_SESSION['login'],
+                        'password'  =>$_SESSION['password'],
+                        'admin'     =>$isadmin,
                     ];
                 
-                $this->render('adminHome', $data);
+                $this->render('adminhome', $data);
                 } 
                 elseif($isadmin == 0 && $re == 1 ){
 
-                    $tabscore = $this->ResultatManager->getAllResultats();
+                    $tabscore = $this->ResultatManager->getAllResultatsDay();
                     $_SESSION['login']    = $userData['login'];
                     $_SESSION['password'] = $userData['password'];
                     $message = "Vous n'étes pas encors administrateur";
@@ -71,7 +72,7 @@ class UtilisateurController extends Controller
                         'scores'        =>$tabscore,
                         'message'       =>$message,
                     ];
-                    $this->render('contributeurHome', $data);
+                    $this->render('adminhome', $data);
                 }
                 
                 elseif($isadmin == 0 && $re == 0)
@@ -119,13 +120,15 @@ class UtilisateurController extends Controller
                     $data=[
                         'login'=>$_SESSION['login'],
                         'password'=>$_SESSION['password'],
+                        'admin'     =>$isadmin,
+
                     ];
                 
-                $this->render('adminHome', $data);
+                $this->render('adminhome', $data);
                 } 
                 elseif($isadmin == 0 && $re == 1 ){
 
-                    $tabscore = $this->ResultatManager->getAllResultats();
+                    $tabscore = $this->ResultatManager->getAllResultatsDay();
                     $_SESSION['login']    = $userData['login'];
                     $_SESSION['password'] = $userData['password'];
                     $message = "Vous n'étes pas encors administrateur";
@@ -136,7 +139,7 @@ class UtilisateurController extends Controller
                         'scores'        =>$tabscore,
                         'message'       =>$message,
                     ];
-                    $this->render('userHome', $data);
+                    $this->render('adminhome', $data);
                 }
                 
                 elseif($isadmin == 0 && $re == 0)
@@ -176,51 +179,65 @@ class UtilisateurController extends Controller
     public function createValidAction()
     {
         if (isset($_POST['valider'])){
-            if (isset($_POST['nom']) && !empty($_POST['nom']) 
+            if (isset($_POST['observation']) && !empty($_POST['observation'])
+            && isset($_POST['nom']) && !empty($_POST['nom']) 
             && isset($_POST['prenom']) && !empty($_POST['prenom']) 
             && isset($_POST['mail']) && !empty($_POST['mail'])
             && isset($_POST['login']) && !empty($_POST['login']) 
-            && isset($_POST['password']) && !empty($_POST['password']))
+            && isset($_POST['password']) && !empty($_POST['password'])
+            && isset($_POST['passwordVerifi']) && !empty($_POST['passwordVerifi']))
             {
-                $getpassword=sodium_crypto_pwhash_str($_POST['password'], SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE);
-                $Data=[
-                    'nom'       =>$_POST['nom'],
-                    'prenom'    =>$_POST['prenom'],
-                    'login'     =>$_POST['login'],
-                    'email'     =>$_POST['mail'],
-                    'observation'=>"", 
-                    'password'  =>$getpassword];
-                $Users = new Utilisateurs($Data);
-                $userManager = new UtilisateursManager();
-                $userData = $userManager ->getUsers($_POST['login']);
-                $conteur = $userManager -> getUsersNb($_POST['login']);
-                $verifepassword = sodium_crypto_pwhash_str_verify($userData['password'], $_POST['password'] );
-             
-            
-                if($verifepassword == FALSE)
-                {
-                    $this->userManager->add($Users);
-                    
-                    
-                    $_SESSION['login'] = $_POST['login'];
-                    $_SESSION['password'] = $verifepassword;
-                    $data = [
-                        'login'=>$_SESSION['login'],
-                        'password'=>$_SESSION['password'],
+                if ($_POST['password']  =  $_POST['passwordVerifi']){
+                    $getpassword=sodium_crypto_pwhash_str($_POST['password'], SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE);
+                    $Data=[
+                        'nom'               =>$_POST['nom'],
+                        'prenom'            =>$_POST['prenom'],
+                        'login'             =>$_POST['login'],
+                        'email'             =>$_POST['mail'],
+                        'observation'       =>$_POST['observation'], 
+                        'password'          =>$getpassword,
                     ];
-                    $this->render('nActive', $data);  
+                    var_dump($Data);
+                    $Users = new Utilisateurs($Data);
+                    var_dump($Users);
+                    $userManager = new UtilisateursManager();
+                    $userData = $userManager ->getUsers($_POST['login']);
+                    $conteur = $userManager -> getUsersNb($_POST['login']);
+                    $verifepassword = sodium_crypto_pwhash_str_verify($userData['password'], $_POST['password'] );
+                
+                
+                    if($verifepassword == FALSE)
+                    {
+                        $this->userManager->add($Users);
+                        
+                        
+                        $_SESSION['login'] = $_POST['login'];
+                        $_SESSION['password'] = $verifepassword;
+                        $data = [
+                            'login'=>$_SESSION['login'],
+                            'password'=>$_SESSION['password'],
+                        ];
+                        $this->render('nActive', $data);   
+                    }
+                    else{
+                        $data = [];
+                        $this->render('userExiste', $data);
+                    }
                 }
                 else{
-                    die;
-                    $data = [];
-                    $this->render('userExiste', $data);
-                }
-                
-                
+                    $message = "le mot de passe n'est pas parreil dans les deux champs de mot de passe et repeter le mot de passe";
+                    $data = [
+                        'message'   => $message,
+                    ];
+                    $this->render('createUser', $data);
+                }   
             }
         }
         else{
-            $data = [];
+            $message = "Veillez remplir tout les champs";
+            $data = [
+                'msg'   => $message,
+            ];
             $this->render('createUser', $data);
         }
 
@@ -229,9 +246,13 @@ class UtilisateurController extends Controller
     public function listUsersAction()
     {
         $listUser = $this->userManager->getAllUser();
-
+        $userManager = new UtilisateursManager;
+        $userData = $userManager ->getUsers($_COOKIE['connection']);
+        $isadmin = $userData['isadmin'];
+       
         $data = [
-            'listUsers'      => $listUser
+            'admin'     =>$isadmin,
+            'listUsers'      => $listUser,
         ];
         $this->render('listUser', $data );
     }
@@ -272,9 +293,36 @@ class UtilisateurController extends Controller
                     $message = "l'utilisateur a bien été remplacer";
              }
              $listUser = $this->userManager->getAllUser();
+             $userManager = new UtilisateursManager;
+             $userData = $userManager ->getUsers($_COOKIE['connection']);
+             $isadmin = $userData['isadmin'];
+            
              $data = [
-                 'listUsers'      => $listUser,
-                 'message'           => $message,
+                 'admin'            =>$isadmin,
+                 'listUsers'        => $listUser,
+                 'message'          => $message,
+             ];
+             $this->render('listUser', $data );
+        }
+    }
+    public function updateNonAction()
+    {
+        if(isset( $_REQUEST['id'] ) ){
+            $userData = $this->userManager->get((int)$_REQUEST['id']);
+             if ($this->userManager->updateNA($userData)) {
+                 $message = "L'utilisateur <b>" . $userData->getLogin() . '</b> a été desactiver.';
+             }else{
+                    $message = "l'utilisateur a bien été remplacer";
+             }
+             $listUser = $this->userManager->getAllUser();
+             $userManager = new UtilisateursManager;
+             $userData = $userManager ->getUsers($_COOKIE['connection']);
+             $isadmin = $userData['isadmin'];
+            
+             $data = [
+                 'admin'            =>$isadmin,
+                 'listUsers'        => $listUser,
+                 'message'          => $message,
              ];
              $this->render('listUser', $data );
         }

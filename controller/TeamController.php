@@ -3,6 +3,8 @@
 namespace controller;
 use model\TeamsManager;
 use model\Teams;
+use model\UtilisateursManager;
+use model\ResultatsManager;
 
 class TeamController extends Controller
 {
@@ -38,7 +40,12 @@ class TeamController extends Controller
    public function listTeamAction()
    {
        $lstTeam = $this->teamsManager->getAllTeams();
-       $data=[
+       $userManager = new UtilisateursManager;
+       $userData = $userManager ->getUsers($_COOKIE['connection']);
+       $isadmin = $userData['isadmin'];
+      
+       $data = [
+           'admin'     =>$isadmin,
             'liste'  => $lstTeam,
         ];
 
@@ -57,11 +64,7 @@ class TeamController extends Controller
 
     public function updateValidAction()
     {  
-
-       /* if ( isset($_POST["id"]) && isset($_POST['nomEntreneur']) && isset($_POST['prenomEntreneur']) 
-        && isset($_POST['logo']) && isset($_POST['nomEquipe']) && isset($_POST['initiale']) && isset($_POST['info'])  
-        && !empty($_POST["id"]) && !empty($_POST['nomEntreneur']) &&  !empty($_POST['prenomEntreneur']) 
-        && !empty($_POST['logo']) && !empty($_POST['nomEquipe']) && !empty($_POST['initiale']) && !empty($_POST['info']))*/
+          
         $new = false;
         if( isset( $_REQUEST['update'] ) ) 
         {
@@ -76,10 +79,11 @@ class TeamController extends Controller
                 {
                     $nom=$_POST['initiale'];
                     $new =$nom."_"."logo".".".$extension_upload;
-                    $enre = move_uploaded_file($_FILES['logo']['tmp_name'], 'public/images/CNI/' . $new );
+                    $enre = move_uploaded_file($_FILES['logo']['tmp_name'], 'public/images/imageDbPpe2/' . $new );
                 }
                 }
-            } else {
+            } 
+            else {
                 $new = $_REQUEST['curLogo'];
             }
             //var_dump($new);
@@ -87,11 +91,11 @@ class TeamController extends Controller
                 'id'                        => $_POST['id'],
                 'nomEntreneur'              => $_POST['nomEntreneur'],
                 'prenomEntreneur'           => $_POST['prenomEntreneur'],
-                'logo'                      => $new,
+                'logo'                      => 'public/images/imageDbPpe2/' . $new,
                 'nomEquipe'                 => $_POST['nomEquipe'],
                 'infoTeam'                  => $_POST['info'],
             ];
-/*
+        /*
             $DataAdv = [
                 'logo'                      => $_POST['logo'],
                 'nomEquipe'                 => $_POST['nomEquipe'],
@@ -146,4 +150,18 @@ class TeamController extends Controller
              ];
         }
     }
+
+    public function createAction()
+    {
+        $userManager = new UtilisateursManager;
+        $userData = $userManager ->getUsers($_COOKIE['connection']);
+        $isadmin = $userData['isadmin'];
+       
+        $data = [
+            'admin'     =>$isadmin,
+        ];
+        $this->render('createTeams', $data);
+    }
+
+    
 }
