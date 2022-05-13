@@ -1,0 +1,59 @@
+{% extends "Pagelayout.html.twig" %}
+
+{% block header %}
+<nav class="navbar navbar-expand-lg fixed-top bg-light navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="#"
+      ><img
+        id="MDB-logo"
+        src="https://alexcarmona42.files.wordpress.com/2014/06/mdl.png" 
+        alt="logo MDL"
+        draggable="false"
+        height="30"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="#!"><i class="fas fa-plus-circle pe-2"></i>Acceuil</a>
+        </li>
+        {% if admin == 1 %}
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="?controller=utilisateur&action=listUsers"><i class="fas fa-bell pe-2"></i>Gestion des utilisateurs</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="?controller=home&action=default"><i class="fas fa-heart pe-2"></i>vue de la page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="?controller=team&action=listTeam"><i class="fas fa-heart pe-2"></i>Equipe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="?controller=resultat&action=Scores"><i class="fas fa-heart pe-2"></i>Gestion des scores</a>
+        </li>
+        <li class="nav-item ms-3">
+          <a class="btn btn-danger btn-rounded" href="?controller=utilisateur&action=logout">Déconnection</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endblock %}
+{% block body %}
+
+
+    
+{% endblock %}
+{% block footer %}
+
+{% endblock %}
